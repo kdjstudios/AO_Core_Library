@@ -1,0 +1,122 @@
+# depslib dependency file v1.0
+1328481797 source:/home/kyle/Ubuntu One/CodeingZone/Linux/AO/main.cpp
+	<iostream>
+	<string.h>
+	"ao.h"
+
+1328400784 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/ao.h
+	"matrix2x2.h"
+	"matrix3x3.h"
+	"matrix4x4.h"
+	"vector2.h"
+	"vector3.h"
+	"vector4.h"
+	"quaternion.h"
+	"aoBST.h"
+	"aoList.h"
+	"Lists.h"
+	"vector.h"
+	"aoStack.h"
+	"aoMath.h"
+	"aoConstant.h"
+	"aoTelegram.h"
+	"aoMesh.h"
+	"aoShape.h"
+	"aoLine.h"
+	"aoEntity.h"
+	"aoBodyEntity.h"
+	"aoRigidBody.h"
+	"aoClock.h"
+
+1328242775 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/vector2.h
+	<ostream>
+	<sstream>
+	<cmath>
+
+1328181397 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/quaternion.h
+	<ostream>
+	<sstream>
+	<cmath>
+
+1328181202 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/vector3.h
+	<ostream>
+	<sstream>
+	<cmath>
+
+1328185638 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoBST.h
+	<iostream>
+	<string>
+	"aoConstant.h"
+
+1328237038 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoConstant.h
+
+1328188888 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoList.h
+	<iostream>
+	<string>
+	"aoConstant.h"
+
+1328214015 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/vector4.h
+
+1328213840 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/matrix2x2.h
+	"vector2.h"
+
+1328247252 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/matrix3x3.h
+
+1328247229 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/matrix4x4.h
+	<cmath>
+	"vector3.h"
+	"vector4.h"
+	"aoMath.h"
+
+1328190755 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/Str.h
+	<iostream>
+	"aoRefPtrHandle.h"
+
+1328238354 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoRefPtrHandle.h
+	<iostream>
+	<cassert>
+
+1328210503 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/Lists.h
+	<cassert>
+
+1328193850 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/vector.h
+
+1328194301 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoStack.h
+	<cassert>
+
+1328237035 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoMath.h
+	"aoConstant.h"
+	<math.h>
+	<float.h>
+	<stdlib.h>
+	<limits.h>
+
+1328189365 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoTelegram.h
+
+1328240486 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoMesh.h
+	"vector3.h"
+	<vector>
+
+1328242950 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoShape.h
+	"vector3.h"
+	"vector2.h"
+	"aoMath.h"
+
+1328243052 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoLine.h
+	"vector3.h"
+	"vector2.h"
+
+1328244924 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoSorts.h
+
+1328401783 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoEntity.h
+
+1328245171 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoClock.h
+	"vector3.h"
+	<windows.h>
+
+1328403307 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoBodyEntity.h
+	"aoEntity.h"
+
+1328403895 /home/kyle/Ubuntu One/CodeingZone/Linux/AO/aoRigidBody.h
+	"aoBodyEntity.h"
+
