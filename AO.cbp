@@ -40,10 +40,15 @@
 		<Unit filename="aoClock.h" />
 		<Unit filename="aoConstant.h" />
 		<Unit filename="aoEntity.h" />
+		<Unit filename="aoEntityManager.h" />
+		<Unit filename="aoFSM.h" />
+		<Unit filename="aoIAABox.h" />
 		<Unit filename="aoLine.h" />
 		<Unit filename="aoList.h" />
 		<Unit filename="aoMath.h" />
 		<Unit filename="aoMesh.h" />
+		<Unit filename="aoMovingEntity.h" />
+		<Unit filename="aoRect.h" />
 		<Unit filename="aoRefPtrHandle.h" />
 		<Unit filename="aoRigidBody.h" />
 		<Unit filename="aoShape.h" />

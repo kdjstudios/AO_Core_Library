@@ -2,58 +2,69 @@
 #include <string.h>
 #include "ao.h"
 
+
 using namespace std;
 using namespace ao;
 using namespace ao::core;
 //Testing Case Data
 #define TEST_INSERT1_SIZE 17
-string test_insert1[]={
-"hh","dd","ll","bb","ff","jj","nn","aa","cc","ee","gg","ii","kk","mm","oo",
+string test_insert1[]=
+{
+    "hh","dd","ll","bb","ff","jj","nn","aa","cc","ee","gg","ii","kk","mm","oo",
 //expect to fail
-"hh","cc"
+    "hh","cc"
 };
 //sequential ascending order
 #define TEST_INSERT3_SIZE 17
-string test_insert3[]={
-"hh","gg","ff","ee","dd","cc","bb","aa","ii","jj","kk","ll","mm","nn","oo",
+string test_insert3[]=
+{
+    "hh","gg","ff","ee","dd","cc","bb","aa","ii","jj","kk","ll","mm","nn","oo",
 //expect to fail
-"**","aa"
+    "**","aa"
 };
 // sequential, sorted ascending
 #define TEST_INSERT4_SIZE 18
-string test_insert4[]={
-"aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll","mm","nn","oo",
+string test_insert4[]=
+{
+    "aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll","mm","nn","oo",
 //expect to fail
-"aa","##","oo"
+    "aa","##","oo"
 };
 // sequential, sorted descending
 #define TEST_INSERT5_SIZE 18
-string test_insert5[]={
-"oo","nn","mm","ll","kk","jj","ii","hh","gg","ff","ee","dd","cc","bb","aa",
+string test_insert5[]=
+{
+    "oo","nn","mm","ll","kk","jj","ii","hh","gg","ff","ee","dd","cc","bb","aa",
 //expect to fail
-"aa","hh","__"
+    "aa","hh","__"
 };
 #define TEST_SEARCH1_SIZE 17
-string test_search1[]={
-"aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll","mm","nn","oo",
+string test_search1[]=
+{
+    "aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll","mm","nn","oo",
 //expect to fail
-"@@","pp"
+    "@@","pp"
 };
 #define TEST_REMOVE1_SIZE 18
-string test_remove1[]={
-"aa","bb","cc","dd","ee","ff","gg",
-"hh","ii","jj","kk","ll","mm","nn","oo",
+string test_remove1[]=
+{
+    "aa","bb","cc","dd","ee","ff","gg",
+    "hh","ii","jj","kk","ll","mm","nn","oo",
 //expect to fail
-"oo","@@","pp"
+    "oo","@@","pp"
 };
 
-void print(RetStat test){
-	if(test==SUCCESS) {
+void print(RetStat test)
+{
+    if(test==SUCCESS)
+    {
         cout << "Test was a Success!" << endl;
-	}else{
-		cout << "Test was a Fail!" << endl;
-	}
-	cout << "Press any key to quit. ";
+    }
+    else
+    {
+        cout << "Test was a Fail!" << endl;
+    }
+    cout << "Press any key to quit. ";
     char blah = ' ';
     cin.get(blah);
 }
@@ -62,93 +73,93 @@ RetStat quaternionTEST()
 {
 // Demonstrates other copy constructor, static member variable usage, and unary operator-
 //const Vector3 backward(-Vector3::Forward);
-const Quaternion backward(Quaternion::One*3);
+    const Quaternion backward(Quaternion::One*3);
 // Demonstrates cross product
-const Quaternion right(norm(backward));
+    const Quaternion right(normalize(backward));
 
 // Demonstrates constructor
-Quaternion testVect(10.0f, 30.0f,10.0f,22.0f);
+    Quaternion testVect(10.0f, 30.0f,10.0f,22.0f);
 
 // Demonstrates operator<<
-cout << testVect << '\n';
+    cout << testVect << '\n';
 // Demonstrates clamp/truncate method
 //truncate(testVect,3);
-cout << "truncated at 3: " << testVect << '\n';
+    cout << "truncated at 3: " << testVect << '\n';
 
 // Demonstrates reflect method
 //const Quaternion reflection( reflect(testVect,backward) );
 //cout << "Reflected off surface with 'backward' as the normal, " << reflection << '\n';
 
 // Demonstrates operator*, we don't const 'doubleFwd' because we want to use normalize later.
-Quaternion doubleFwd(Quaternion::One* 2);
+    Quaternion doubleFwd(Quaternion::One* 2);
 
-cout << "Double Forward, " << doubleFwd << '\n';
-cout << "Double Forward Length: " << mag(doubleFwd) << '\n';
-norm(doubleFwd);
-cout << "Normalized Double Forward, now what is the length?: " << mag(doubleFwd) << '\n';
+    cout << "Double Forward, " << doubleFwd << '\n';
+    cout << "Double Forward Length: " << magnitude(doubleFwd) << '\n';
+    toNormalized(doubleFwd);
+    cout << "Normalized Double Forward, now what is the length?: " << magnitude(doubleFwd) << '\n';
 //zero(doubleFwd);
-cout << "Zero out Double Forward, now what is the length?: " << doubleFwd << '\n';
+    cout << "Zero out Double Forward, now what is the length?: " << doubleFwd << '\n';
 //My compiler confuses 'distance' with an c iterator
 //cout << "Distance from Double Forward to Reflection: " << (float)AO::Quaternion::dist(doubleFwd,reflection) << '\n';
 //Quaternion per( perp(backward) );
 //cout << "Perpendicular to 'backward':" << per << '\n';
 //cout << "Sign of Perpendicular and double(Not Working) " << sign(per,doubleFwd) << '\n';
 
-return SUCCESS;
+    return SUCCESS;
 }
 //
 RetStat vector3TEST()
 {
 // Demonstrates other copy constructor, static member variable usage, and unary operator-
 //const vector3 backward(-vector3::Forward);
-const vector3 backward(vector3::Backward);
+    const vector3 backward(vector3::Backward);
 // Demonstrates cross product
-const vector3 right( cross(vector3::Forward,vector3::Up ));
+    const vector3 right( cross(vector3::Forward,vector3::Up ));
 
 // Demonstrates constructor
-vector3 testVect(10.0f, 30.0f, 1.0f);
+    vector3 testVect(10.0f, 30.0f, 1.0f);
 
 // Demonstrates operator<<
-cout << testVect << '\n';
+    cout << testVect << '\n';
 // Demonstrates clamp/truncate method
-truncate(testVect,3);
-cout << "truncated at 3: " << testVect << '\n';
+    truncate(testVect,3);
+    cout << "truncated at 3: " << testVect << '\n';
 
 // Demonstrates reflect method
-const vector3 reflection( reflect(testVect,backward) );
-cout << "Reflected off surface with 'backward' as the normal, " << reflection << '\n';
+    const vector3 reflection( reflect(testVect,backward) );
+    cout << "Reflected off surface with 'backward' as the normal, " << reflection << '\n';
 
 // Demonstrates operator*, we don't const 'doubleFwd' because we want to use normalize later.
-vector3 doubleFwd(vector3::Forward* 2);
+    vector3 doubleFwd(vector3::Forward* 2);
 
-cout << "Double Forward, " << doubleFwd << '\n';
-cout << "Double Forward Length: " << magnitude(doubleFwd) << '\n';
-toNormalized(doubleFwd);
-cout << "Normalized Double Forward, now what is the length?: " << magnitude(doubleFwd) << '\n';
-toZero(doubleFwd);
-cout << "Zero out Double Forward, now what is the length?: " << doubleFwd << '\n';
+    cout << "Double Forward, " << doubleFwd << '\n';
+    cout << "Double Forward Length: " << magnitude(doubleFwd) << '\n';
+    toNormalized(doubleFwd);
+    cout << "Normalized Double Forward, now what is the length?: " << magnitude(doubleFwd) << '\n';
+    toZero(doubleFwd);
+    cout << "Zero out Double Forward, now what is the length?: " << doubleFwd << '\n';
 //My compiler confuses 'distance' with an c iterator
-cout << "Distance from Double Forward to Reflection: " << (float)dist(doubleFwd,reflection) << '\n';
-vector3 perp3( perpendicular(backward) );
-cout << "Perpendicular to 'backward':" << perp3 << '\n';
-cout << "Sign of Perpendicular and double(Not Working) " << sign(perp3,doubleFwd) << '\n';
+    cout << "Distance from Double Forward to Reflection: " << (float)dist(doubleFwd,reflection) << '\n';
+    vector3 perp3( perpendicular(backward) );
+    cout << "Perpendicular to 'backward':" << perp3 << '\n';
+    cout << "Sign of Perpendicular and double(Not Working) " << sign(perp3,doubleFwd) << '\n';
 
-return SUCCESS;
+    return SUCCESS;
 }
 //
 RetStat vector4TEST()
 {
 // Demonstrates other copy constructor, static member variable usage, and unary operator-
 //const vector3 backward(-vector3::Forward);
-const vector4 backward=vector4(0.0f,0.0f,-1.0f,1.0f);
+    const vector4 backward=vector4(0.0f,0.0f,-1.0f,1.0f);
 // Demonstrates cross product
-const vector4 right;
+    const vector4 right;
 
 // Demonstrates constructor
-vector4 testVect(10.0f, 30.0f, 1.0f,22.0f);
+    vector4 testVect(10.0f, 30.0f, 1.0f,22.0f);
 
 // Demonstrates operator<<
-cout << testVect << '\n';
+    cout << testVect << '\n';
 // Demonstrates clamp/truncate method
 //truncate(testVect,3);
 //cout << "truncated at 3: " << testVect << '\n';
@@ -158,12 +169,12 @@ cout << testVect << '\n';
 //cout << "Reflected off surface with 'backward' as the normal, " << reflection << '\n';
 
 // Demonstrates operator*, we don't const 'doubleFwd' because we want to use normalize later.
-vector4 doubleFwd=backward*-2;
+    vector4 doubleFwd=backward*-2;
 
-cout << "Double Forward, " << doubleFwd << '\n';
-cout << "Double Forward Length: " << magnitude(doubleFwd) << '\n';
-doubleFwd=normalize(doubleFwd);
-cout << "Normalized Double Forward, now what is the length?: " << magnitude(doubleFwd) << '\n';
+    cout << "Double Forward, " << doubleFwd << '\n';
+    cout << "Double Forward Length: " << magnitude(doubleFwd) << '\n';
+    doubleFwd=normalize(doubleFwd);
+    cout << "Normalized Double Forward, now what is the length?: " << magnitude(doubleFwd) << '\n';
 //toZero(doubleFwd);
 //cout << "Zero out Double Forward, now what is the length?: " << doubleFwd << '\n';
 //My compiler confuses 'distance' with an c iterator
@@ -172,50 +183,84 @@ cout << "Normalized Double Forward, now what is the length?: " << magnitude(doub
 //cout << "Perpendicular to 'backward':" << perp3 << '\n';
 //cout << "Sign of Perpendicular and double(Not Working) " << sign(perp3,doubleFwd) << '\n';
 
-return SUCCESS;
+    return SUCCESS;
 }
 //
 RetStat vector2TEST()
 {
 // Demonstrates other copy constructor, static member variable usage, and unary operator-
 //const vector3 backward(-vector3::Forward);
-const vector2 backward(vector2::Zero);
+    const vector2 backward(vector2::Zero);
 // Demonstrates cross product
-const vector2 right( crossVec(vector2::Zero,vector2::One));
+    const vector2 right( crossVec(vector2::Zero,vector2::One));
 
 // Demonstrates constructor
-vector2 testVect(10.0f, 30.0f);
+    vector2 testVect(10.0f, 30.0f);
 
 // Demonstrates operator<<
-cout << testVect << '\n';
+    cout << testVect << '\n';
 // Demonstrates clamp/truncate method
-truncate(testVect,3);
-cout << "truncated at 3: " << testVect << '\n';
+    truncate(testVect,3);
+    cout << "truncated at 3: " << testVect << '\n';
 
 // Demonstrates reflect method
-const vector2 reflection( reflect(testVect,backward) );
-cout << "Reflected off surface with 'backward' as the normal, " << reflection << '\n';
+    const vector2 reflection( reflect(testVect,backward) );
+    cout << "Reflected off surface with 'backward' as the normal, " << reflection << '\n';
 
 // Demonstrates operator*, we don't const 'doubleFwd' because we want to use normalize later.
-vector2 doubleFwd(vector2::One* 2);
+    vector2 doubleFwd(vector2::One* 2);
 
-cout << "Double Forward, " << doubleFwd << '\n';
-cout << "Double Forward Length: " << magnitude(doubleFwd) << '\n';
-normalize(doubleFwd);
-cout << "Normalized Double Forward, now what is the length?: " << magnitude(doubleFwd) << '\n';
-zero(doubleFwd);
-cout << "Zero out Double Forward, now what is the length?: " << doubleFwd << '\n';
+    cout << "Double Forward, " << doubleFwd << '\n';
+    cout << "Double Forward Length: " << magnitude(doubleFwd) << '\n';
+    normalize(doubleFwd);
+    cout << "Normalized Double Forward, now what is the length?: " << magnitude(doubleFwd) << '\n';
+    zero(doubleFwd);
+    cout << "Zero out Double Forward, now what is the length?: " << doubleFwd << '\n';
 //My compiler confuses 'distance' with an c iterator
-cout << "Distance from Double Forward to Reflection: " << (float)dist(doubleFwd,reflection) << '\n';
-vector2 per( perpendicular(backward) );
-cout << "Perpendicular to 'backward':" << per << '\n';
-cout << "Sign of Perpendicular and double(Not Working) " << sign(per,doubleFwd) << '\n';
+    cout << "Distance from Double Forward to Reflection: " << (float)dist(doubleFwd,reflection) << '\n';
+    vector2 per( perpendicular(backward) );
+    cout << "Perpendicular to 'backward':" << per << '\n';
+    cout << "Sign of Perpendicular and double(Not Working) " << sign(per,doubleFwd) << '\n';
 
-return SUCCESS;
+    return SUCCESS;
 }
 //
 //
-RetStat EntityTEST(){
+RetStat EntityTEST()
+{
+    //EntityManager* iManager =EntityManager::Instance();
+    BaseEntity tempr;
+
+    //iManager->RegisterEntity(tempr);
+    return SUCCESS;
+}
+//
+RetStat MovingEntityTEST()
+{
+    //EntityManager* iManager =EntityManager::Instance();
+    MovingEntity tempr;
+
+    //iManager->RegisterEntity(tempr);
+    return SUCCESS;
+}
+//
+RetStat BodyEntityTEST()
+{
+    //EntityManager* iManager =EntityManager::Instance();
+    BodyEntity tempr;
+    tempr.SetDragCoefficient(1);
+    tempr.SetThrust(10);
+    tempr.SetVelocity(30);
+    for(int index=0; index<30; index++)
+    {
+        tempr.StepSimulation((float)index);
+        cout << tempr.Velocity();
+    }
+    //iManager->RegisterEntity(tempr);
+    return SUCCESS;
+}
+/*
+RetStat EntityManagerTEST(){
   //EntityManager* iManager =EntityManager::Instance();
     BodyEntity tempr;
     tempr.SetDragCoefficient(1);
@@ -228,8 +273,31 @@ RetStat EntityTEST(){
     //iManager->RegisterEntity(tempr);
     return SUCCESS;
 }
+//*/
+
+RetStat FSMTEST()
+{
+
+
+    //create a miner
+    //Miner Bob(ent_Miner_Bob);
+
+    //create his wife
+    //MinersWife Elsa(ent_Elsa);
+
+    //run Bob and Elsa through a few Update calls
+    for (int i=0; i<20; ++i)
+    {
+        //Bob.Update();
+        //Elsa.Update();
+
+    }
+
+    return SUCCESS;
+}
 //
-RetStat matrix2x2TEST(){
+RetStat matrix2x2TEST()
+{
     float theta=30.0f;
     matrix2x2 start;
     matrix2x2 rot = rotation2d(theta);
@@ -245,7 +313,8 @@ RetStat matrix2x2TEST(){
     cout << "start*temp: " << start*temp<<endl;
     return SUCCESS;
 }
-RetStat matrix3x3TEST(){
+RetStat matrix3x3TEST()
+{
     float theta=30.0f;
     matrix3x3 start;
     matrix3x3 rot = matrix3x3();
@@ -261,7 +330,8 @@ RetStat matrix3x3TEST(){
     //cout << "start*temp: " << start*temp<<endl;
     return SUCCESS;
 }
-RetStat matrix4x4TEST(){
+RetStat matrix4x4TEST()
+{
     float theta=30.0f;
     matrix4x4 start;
     matrix4x4 rot = rotateYXZ(40.0f,20.0f,10.0f);
@@ -398,16 +468,19 @@ RetStat aoBSTTEST(){
 
 int main()
 {
-    //print(vector2TEST());
-    //print(vector3TEST());
+    print(vector2TEST());
+    print(vector3TEST());
     print(vector4TEST());
-    //print(quaternionTEST());
+    print(quaternionTEST());
     //print(aoBSTTEST());
-    //print(matrix2x2TEST());
-    //print(matrix3x3TEST());
-    //print(matrix4x4TEST());
-    //DoublyLinkedList::exercise();
-    //SinglyLinkedList :: exercise();
+    print(matrix2x2TEST());
+    print(matrix3x3TEST());
+    print(matrix4x4TEST());
+    print(FSMTEST());
+
+
+    DoublyLinkedList::exercise();
+    SinglyLinkedList::exercise();
 
     cout << "Press any key to quit. ";
     char blah = ' ';

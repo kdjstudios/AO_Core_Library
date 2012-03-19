@@ -6,8 +6,9 @@ ONLY FILE NEEDED TO INCLUDE
 //All Includes below
 // #include "dimension2d.h"
 // #include "position2d.h"
-// #include "rect.h"
+#include "aoRect.h"
 // #include "aabbox3d.h"
+#include "aoIAABox.h"
 // #include "line2d.h"
 // #include "line3d.h"
 // #include "plane3d.h"
@@ -20,12 +21,14 @@ ONLY FILE NEEDED TO INCLUDE
 #include "vector4.h"
 #include "quaternion.h"
 #include "aoBST.h"
+#include "aoFSM.h"
 //MAY NOT BE AS GOOD AS CAN BE
 // #include "aoArray.h"
 #include "aoList.h"
 #include "Lists.h"
 #include "vector.h"
 #include "aoStack.h"
+#include "aoFSM.h"
 // #include "aoMap.h"
 #include "aoMath.h"
 #include "aoConstant.h"
@@ -35,10 +38,12 @@ ONLY FILE NEEDED TO INCLUDE
 #include "aoShape.h"
 #include "aoLine.h"
 //#include "Str.h"
-// #include "aoTypes.h"
+//#include "aoTypes.h"
 // #include "aoatof.h"
 //#include "aoSorts.h"
+//#include "aoEntityManager.h"
 #include "aoEntity.h"
+#include "aoMovingEntity.h"
 #include "aoBodyEntity.h"
 #include "aoRigidBody.h"
 #include "aoClock.h"
@@ -46,11 +51,12 @@ ONLY FILE NEEDED TO INCLUDE
 
 
 //The complete api for Adrenaline Obsession
-namespace ao{
+namespace ao
+{
+// THE FOLLOWING IS AN EMPTY LIST OF ALL SUB NAMESPACES
 
 //Basic classes such as vectors, planes, arrays, lists, and so on can be found in this namespace.
-namespace  	core{};
-// Other namespaces to be fully implemented
+namespace  	core {};
 
 };
 

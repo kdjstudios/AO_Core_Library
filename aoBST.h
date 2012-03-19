@@ -12,8 +12,10 @@ ONLY FILE NEEDED TO INCLUDE
 
 using namespace std;
 
-namespace ao{
-namespace core{
+namespace ao
+{
+namespace core
+{
 
 //
 // BSTNode
@@ -30,28 +32,31 @@ namespace core{
 // ----------
 //
 template <class TYPE>
-struct BSTNode{
-	TYPE data;
-	BSTNode<TYPE>* up;
-	BSTNode<TYPE>* left;
-	BSTNode<TYPE>* right;
-	int height;
-	BSTNode(){
-		cout << "BSTNode()\n";
+struct BSTNode
+{
+    TYPE data;
+    BSTNode<TYPE>* up;
+    BSTNode<TYPE>* left;
+    BSTNode<TYPE>* right;
+    int height;
+    BSTNode()
+    {
+        cout << "BSTNode()\n";
         data="";
         up=NULL;
         left=NULL;
         right=NULL;
         height=1;
-	}
-	BSTNode( TYPE const&new_data,BSTNode* new_up){
-		cout << "BSTNode(new_data,new_up)\n";
+    }
+    BSTNode( TYPE const&new_data,BSTNode* new_up)
+    {
+        cout << "BSTNode(new_data,new_up)\n";
         data=new_data;
         up=new_up;
         left=NULL;
         right=NULL;
         height=1;
-	}
+    }
 };
 //
 // BinarySearchTree
@@ -71,29 +76,37 @@ struct BSTNode{
 // ----------
 //
 template <class TYPE>
-class BinarySearchTree{
+class BinarySearchTree
+{
 private:
-	BSTNode<TYPE>* root;
-	int size;
-	void ascend(BSTNode<TYPE>* current){
+    BSTNode<TYPE>* root;
+    int size;
+    void ascend(BSTNode<TYPE>* current)
+    {
         cout << "ascend()\n";
-		while(current!=NULL){
+        while(current!=NULL)
+        {
             int dif=setNodeHeight(current);
             current=current->up;
         }
     }
-	int setNodeHeight(BSTNode<TYPE>* current){
+    int setNodeHeight(BSTNode<TYPE>* current)
+    {
         //cout << "setNodeHeight()\n";
-		int highest=0;
+        int highest=0;
         int dif=0;
-        if(current->left!=NULL) {// if there is a left
-            if(current->left->height>highest) {
+        if(current->left!=NULL)  // if there is a left
+        {
+            if(current->left->height>highest)
+            {
                 highest=current->left->height;
             }
             dif=current->left->height;
         }
-        if(current->right!=NULL) {//if there is a right
-            if(current->right->height>highest) {
+        if(current->right!=NULL)  //if there is a right
+        {
+            if(current->right->height>highest)
+            {
                 highest=current->right->height;
             }
             dif-=current->right->height;
@@ -102,25 +115,32 @@ private:
         return dif;
     }
 public:
-	BinarySearchTree(){
+    BinarySearchTree()
+    {
         cout << "BinarySearchTree()\n";
         root=NULL;
         size=0;
     }
-	virtual ~BinarySearchTree(){
+    virtual ~BinarySearchTree()
+    {
         cout << "~BinarySearchTree()\n";
         clear();
     }
-	RetStat insert(string const& target){
-		cout << "insert(), "<<target<<"\n";
-		BSTNode<TYPE> * current=root;
-		BSTNode<TYPE> * node=NULL;
-        while(current!=NULL) {
-            if(target==current->data) {
+    RetStat insert(string const& target)
+    {
+        cout << "insert(), "<<target<<"\n";
+        BSTNode<TYPE> * current=root;
+        BSTNode<TYPE> * node=NULL;
+        while(current!=NULL)
+        {
+            if(target==current->data)
+            {
                 return DUPLICATE_ERROR;
             }
-            if(target<current->data) {
-                if(current->left==NULL) {
+            if(target<current->data)
+            {
+                if(current->left==NULL)
+                {
                     node=new BSTNode<TYPE>(target,current);
                     current->left=node;
                     ascend(node);
@@ -128,8 +148,11 @@ public:
                     return SUCCESS;
                 }
                 current=current->left;
-			}else{
-                if(current->right==NULL) {
+            }
+            else
+            {
+                if(current->right==NULL)
+                {
                     node=new BSTNode<TYPE>(target,current);
                     current->right=node;
                     ascend(node);
@@ -143,47 +166,65 @@ public:
         size=1;
         return SUCCESS;
     }
-	RetStat search(string & target){
-		cout << "search(), "<<target<<"\n";
-		BSTNode<TYPE> * current=root;
+    RetStat search(string & target)
+    {
+        cout << "search(), "<<target<<"\n";
+        BSTNode<TYPE> * current=root;
         BSTNode<TYPE> * node=NULL;
-        while(current!=NULL) {
-            if(target==current->data) {
+        while(current!=NULL)
+        {
+            if(target==current->data)
+            {
                 return SUCCESS;
             }
             node=current;
-            if(target<current->data) {
+            if(target<current->data)
+            {
                 current=current->left;
-            }else{
+            }
+            else
+            {
                 current=current->right;
             }
         }
 
         return FAIL;
     }
-	void clear(){
+    void clear()
+    {
         cout << "clear()\n";
-		if(root==NULL) {
+        if(root==NULL)
+        {
             return;
         }
         BSTNode<TYPE> * node=root;
-		//clear
-        for(;;) {
-            if(node->left!=NULL) {
+        //clear
+        for(;;)
+        {
+            if(node->left!=NULL)
+            {
                 node=node->left;
-            } else if(node->right!=NULL) {
+            }
+            else if(node->right!=NULL)
+            {
                 node=node->right;
-            } else {
-				cout << "clearing: " << node->data << "\n";
+            }
+            else
+            {
+                cout << "clearing: " << node->data << "\n";
                 BSTNode<TYPE> *next=node->up;
-                if(next==NULL) {
+                if(next==NULL)
+                {
                     root=NULL;
                     delete node;
                     break;
                 }
-                if(next->left==node) {
+                if(next->left==node)
+                {
                     next->left=NULL;
-                }else{
+                }
+                else
+                {
                     next->right=NULL;
                 }
                 delete node;
@@ -192,7 +233,8 @@ public:
         }
         size=0;
     }
-	int getSize(){
+    int getSize()
+    {
         cout << "getSize() "<<size<<"\n";
         return size;
     }

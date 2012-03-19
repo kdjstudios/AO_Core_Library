@@ -5,8 +5,10 @@ ONLY FILE NEEDED TO INCLUDE
 #define AOTELEGRAM_H
 
 
-namespace ao{
-namespace core{
+namespace ao
+{
+namespace core
+{
 //
 // Telegram
 // (struct template)
@@ -18,12 +20,13 @@ namespace core{
 // + extraInfo : void*
 // ----------
 //
-struct Telegram{
-	int sender;
-	int reciever;
-	int msg;
-	double dispatchTime;
-	void* extraInfo;
+struct Telegram
+{
+    int sender;
+    int reciever;
+    int msg;
+    double dispatchTime;
+    void* extraInfo;
 };
 
 }

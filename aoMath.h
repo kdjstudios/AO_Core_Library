@@ -32,51 +32,61 @@ ONLY FILE NEEDED TO INCLUDE
 #define FLT_MAX 3.402823466E+38F
 #endif
 
-namespace ao{
+namespace ao
+{
 
-namespace core{
+namespace core
+{
 
 //Returns Max
-template<class TYPE> TYPE equ(const TYPE& left, const TYPE& right){
-	return (abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
+template<class TYPE> TYPE equ(const TYPE& left, const TYPE& right)
+{
+    return (abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
 }
 //Returns Max
-template<class TYPE> TYPE max(const TYPE& left, const TYPE& right){
-	return left>right?left:right;
+template<class TYPE> TYPE max(const TYPE& left, const TYPE& right)
+{
+    return left>right?left:right;
 }
 //Returns Min
-template<class TYPE> TYPE min(const TYPE& left, const TYPE& right){
-	return left<right?left:right;
+template<class TYPE> TYPE min(const TYPE& left, const TYPE& right)
+{
+    return left<right?left:right;
 }
 //Used to quickly swap
-template<class TYPE> void swap(const TYPE& left, const TYPE& right){
-	if(left!=right){
-	TYPE temp=left;
-	left=right;
-	right=temp;
-	}
+template<class TYPE> void swap(const TYPE& left, const TYPE& right)
+{
+    if(left!=right)
+    {
+        TYPE temp=left;
+        left=right;
+        right=temp;
+    }
 }
 //Find
-template<class In,class X> In find(In begin, In end, const X& x){
-	while(begin!=end&&*begin!=x)
-		++begin;
-	return begin;
+template<class In,class X> In find(In begin, In end, const X& x)
+{
+    while(begin!=end&&*begin!=x)
+        ++begin;
+    return begin;
 }
 //Copy
-template<class In,class Out> Out copy(In begin, In end, Out dest){
-	while(begin!=end)
-		*dest++=*begin++;
-	return dest;
+template<class In,class Out> Out copy(In begin, In end, Out dest)
+{
+    while(begin!=end)
+        *dest++=*begin++;
+    return dest;
 }
 //Replace
-template<class For,class X> void replace(For begin,For end, const X& x, const X& y){
-	while(begin!=end)
-		if(*begin==x)
-			*begin=y;
-	++begin;
+template<class For,class X> void replace(For begin,For end, const X& x, const X& y)
+{
+    while(begin!=end)
+        if(*begin==x)
+            *begin=y;
+    ++begin;
 }
 }
 
 }
 
-#endif AOMATH_H
+#endif

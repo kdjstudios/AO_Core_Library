@@ -1,74 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
-	<ActiveTarget name="Debug" />
+	<ActiveTarget name="Release" />
 	<File name="Lists.h" open="0" top="0" tabpos="0">
-		<Cursor position="3960" topLine="131" />
+		<Cursor position="3960" topLine="77" />
 	</File>
-	<File name="Str.h" open="0" top="0" tabpos="0">
+	<File name="Str.h" open="1" top="0" tabpos="8">
 		<Cursor position="620" topLine="4" />
 	</File>
-	<File name="ao.h" open="1" top="1" tabpos="2">
-		<Cursor position="1201" topLine="27" />
+	<File name="ao.h" open="1" top="0" tabpos="6">
+		<Cursor position="831" topLine="1" />
 	</File>
 	<File name="aoBST.h" open="0" top="0" tabpos="0">
-		<Cursor position="4834" topLine="32" />
+		<Cursor position="4834" topLine="23" />
 	</File>
-	<File name="aoBodyEntity.h" open="1" top="0" tabpos="3">
-		<Cursor position="298" topLine="0" />
+	<File name="aoBodyEntity.h" open="0" top="0" tabpos="8">
+		<Cursor position="0" topLine="0" />
 	</File>
 	<File name="aoClock.h" open="0" top="0" tabpos="4">
 		<Cursor position="836" topLine="30" />
 	</File>
-	<File name="aoConstant.h" open="0" top="0" tabpos="10">
-		<Cursor position="107" topLine="0" />
+	<File name="aoConstant.h" open="0" top="0" tabpos="5">
+		<Cursor position="373" topLine="0" />
 	</File>
-	<File name="aoEntity.h" open="0" top="0" tabpos="5">
-		<Cursor position="5173" topLine="122" />
+	<File name="aoEntity.h" open="1" top="0" tabpos="5">
+		<Cursor position="1754" topLine="37" />
 	</File>
-	<File name="aoLine.h" open="0" top="0" tabpos="6">
-		<Cursor position="2351" topLine="21" />
+	<File name="aoEntityManager.h" open="0" top="0" tabpos="9">
+		<Cursor position="183" topLine="0" />
+	</File>
+	<File name="aoFSM.h" open="1" top="0" tabpos="2">
+		<Cursor position="751" topLine="2" />
+	</File>
+	<File name="aoIAABox.h" open="1" top="0" tabpos="4">
+		<Cursor position="338" topLine="0" />
+	</File>
+	<File name="aoLine.h" open="1" top="0" tabpos="3">
+		<Cursor position="2688" topLine="28" />
 	</File>
 	<File name="aoList.h" open="0" top="0" tabpos="0">
-		<Cursor position="2974" topLine="136" />
+		<Cursor position="126" topLine="0" />
 	</File>
-	<File name="aoMath.h" open="0" top="0" tabpos="9">
-		<Cursor position="1029" topLine="0" />
+	<File name="aoMath.h" open="1" top="1" tabpos="9">
+		<Cursor position="1989" topLine="48" />
 	</File>
-	<File name="aoMesh.h" open="0" top="0" tabpos="4">
-		<Cursor position="143" topLine="29" />
+	<File name="aoMesh.h" open="0" top="0" tabpos="9">
+		<Cursor position="892" topLine="4" />
 	</File>
-	<File name="aoRefPtrHandle.h" open="0" top="0" tabpos="0">
-		<Cursor position="1309" topLine="4" />
+	<File name="aoRect.h" open="0" top="0" tabpos="7">
+		<Cursor position="928" topLine="38" />
+	</File>
+	<File name="aoRefPtrHandle.h" open="0" top="0" tabpos="4">
+		<Cursor position="133" topLine="0" />
 	</File>
 	<File name="aoRigidBody.h" open="0" top="0" tabpos="7">
 		<Cursor position="873" topLine="35" />
 	</File>
-	<File name="aoShape.h" open="0" top="0" tabpos="7">
-		<Cursor position="4761" topLine="82" />
+	<File name="aoShape.h" open="1" top="0" tabpos="7">
+		<Cursor position="4761" topLine="86" />
 	</File>
 	<File name="aoSorts.h" open="0" top="0" tabpos="3">
 		<Cursor position="51" topLine="0" />
 	</File>
 	<File name="aoStack.h" open="0" top="0" tabpos="0">
-		<Cursor position="3594" topLine="50" />
+		<Cursor position="3594" topLine="0" />
 	</File>
 	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="10479" topLine="45" />
+		<Cursor position="13292" topLine="438" />
 	</File>
 	<File name="matrix2x2.h" open="0" top="0" tabpos="13">
-		<Cursor position="2194" topLine="45" />
+		<Cursor position="2194" topLine="41" />
 	</File>
-	<File name="matrix3x3.h" open="0" top="0" tabpos="12">
-		<Cursor position="1631" topLine="24" />
+	<File name="matrix3x3.h" open="0" top="0" tabpos="3">
+		<Cursor position="3139" topLine="0" />
 	</File>
 	<File name="matrix4x4.h" open="0" top="0" tabpos="11">
 		<Cursor position="5260" topLine="53" />
 	</File>
-	<File name="vector.h" open="0" top="0" tabpos="0">
-		<Cursor position="2826" topLine="56" />
+	<File name="quaternion.h" open="0" top="0" tabpos="2">
+		<Cursor position="3465" topLine="91" />
 	</File>
-	<File name="vector2.h" open="0" top="0" tabpos="8">
-		<Cursor position="211" topLine="288" />
+	<File name="vector.h" open="0" top="0" tabpos="10">
+		<Cursor position="2826" topLine="0" />
+	</File>
+	<File name="vector2.h" open="0" top="0" tabpos="7">
+		<Cursor position="211" topLine="161" />
 	</File>
 	<File name="vector3.h" open="0" top="0" tabpos="9">
 		<Cursor position="10966" topLine="348" />
