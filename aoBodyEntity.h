@@ -7,7 +7,7 @@ ONLY FILE NEEDED TO INCLUDE
 
 namespace ao
 {
-namespace core
+namespace graphics
 {
 
 class BodyEntity:public BaseEntity

@@ -6,9 +6,10 @@ ONLY FILE NEEDED TO INCLUDE
 #define AOMESH_H
 #include "vector3.h"
 #include <vector>
+
 namespace ao
 {
-namespace core
+namespace graphics
 {
 
 //

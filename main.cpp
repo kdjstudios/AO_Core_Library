@@ -225,7 +225,7 @@ RetStat vector2TEST()
     return SUCCESS;
 }
 //
-//
+/*
 RetStat EntityTEST()
 {
     //EntityManager* iManager =EntityManager::Instance();
@@ -234,7 +234,8 @@ RetStat EntityTEST()
     //iManager->RegisterEntity(tempr);
     return SUCCESS;
 }
-//
+//*/
+/*
 RetStat MovingEntityTEST()
 {
     //EntityManager* iManager =EntityManager::Instance();
@@ -243,7 +244,8 @@ RetStat MovingEntityTEST()
     //iManager->RegisterEntity(tempr);
     return SUCCESS;
 }
-//
+//*/
+/*
 RetStat BodyEntityTEST()
 {
     //EntityManager* iManager =EntityManager::Instance();
@@ -259,6 +261,7 @@ RetStat BodyEntityTEST()
     //iManager->RegisterEntity(tempr);
     return SUCCESS;
 }
+*/
 /*
 RetStat EntityManagerTEST(){
   //EntityManager* iManager =EntityManager::Instance();

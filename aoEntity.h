@@ -8,9 +8,11 @@ ONLY FILE NEEDED TO INCLUDE
 #include "aoTelegram.h"
 #include "aoMath.h"
 
+
 namespace ao
 {
-namespace core
+
+namespace graphics
 {
 
 class BaseEntity //:public Entity{

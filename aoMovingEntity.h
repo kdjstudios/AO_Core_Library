@@ -7,7 +7,7 @@ ONLY FILE NEEDED TO INCLUDE
 
 namespace ao
 {
-namespace core
+namespace graphics
 {
 
 //TODO: maybe this should be bodyentity?

@@ -34,7 +34,7 @@ ONLY FILE NEEDED TO INCLUDE
 #include "aoConstant.h"
 #include "aoTelegram.h"
 //#include "aoRefPtrHandle.h"
-#include "aoMesh.h"
+//#include "aoMesh.h"
 #include "aoShape.h"
 #include "aoLine.h"
 //#include "Str.h"
@@ -42,10 +42,10 @@ ONLY FILE NEEDED TO INCLUDE
 // #include "aoatof.h"
 //#include "aoSorts.h"
 //#include "aoEntityManager.h"
-#include "aoEntity.h"
-#include "aoMovingEntity.h"
-#include "aoBodyEntity.h"
-#include "aoRigidBody.h"
+//#include "aoEntity.h"
+//#include "aoMovingEntity.h"
+//#include "aoBodyEntity.h"
+//#include "aoRigidBody.h"
 #include "aoClock.h"
 // #include "coreutil.h"
 
@@ -57,7 +57,10 @@ namespace ao
 
 //Basic classes such as vectors, planes, arrays, lists, and so on can be found in this namespace.
 namespace  	core {};
-
+//Basic classes for opening files such as txt, xml and mpo/jpg can be found in this namespace.
+namespace  	io {};
+//Basic classes such as Vertex, Entity, Rigidbodys, Entity Manager, Meshs, and so on can be found in this namespace.
+namespace  	graphics {};
 };
 
 #endif

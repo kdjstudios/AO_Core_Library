@@ -5,10 +5,9 @@ ONLY FILE NEEDED TO INCLUDE
 #define AORIGIDBODY_H
 #include "aoBodyEntity.h"
 
-
 namespace ao
 {
-namespace core
+namespace graphics
 {
 //
 // RigidBody : bodyentity

@@ -27,7 +27,7 @@ ONLY FILE NEEDED TO INCLUDE
 #define fabsf(X) (f32)fabs((f64)(X))
 #define logf(X) (f32)log((f64)(X))
 #endif
-//MUST HAVE (OTHER WISE BAD THINGS HAPPEN)
+//MUST HAVE
 #ifndef FLT_MAX
 #define FLT_MAX 3.402823466E+38F
 #endif
@@ -85,8 +85,62 @@ template<class For,class X> void replace(For begin,For end, const X& x, const X&
             *begin=y;
     ++begin;
 }
+
+//Returns Absoult Valuse
+template<class TYPE>
+TYPE abs(const TYPE& left)
+{
+    return abs(left);
+}
+//Clamps Value
+template<class TYPE> TYPE Clamp(const TYPE& value, const TYPE& max)
+{
+    return 1;//(abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
+}
+//Ceil
+template<class TYPE> TYPE Ceil(const TYPE& value, const TYPE& max)
+{
+    return 1;//(abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
+}
+//Floor
+template<class TYPE> TYPE Floor(const TYPE& value, const TYPE& max)
+{
+    return 1;//(abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
+}
+//Slerp
+template<class TYPE> TYPE Slerp(const TYPE& value, const TYPE& max)
+{
+    return 1;//(abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
+}
+//Lerp
+template<class TYPE> TYPE Lerp(const TYPE& value, const TYPE& max)
+{
+    return 1;//(abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
+}
+//Round
+template<class TYPE> TYPE Round(const TYPE& value, const TYPE& max)
+{
+    return 1;//(abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
+}
+//IsZero
+template<class TYPE> TYPE IsZero(const TYPE& value, const TYPE& max)
+{
+    return 1;//(abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
+}
+
+//FastSin
+template<class TYPE>
+TYPE FastSIN(const TYPE& value)
+{
+    return SIN[((int) value%360)];//(abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
+}
+//FastCos
+template<class TYPE>
+TYPE FastCOS(const TYPE& value)
+{
+    return SIN[((((int) value)+90)%360)];//(abs(left*right)>ROUNDING_ERROR_FLOAT)?left:right;
 }
 
 }
-
+}
 #endif
