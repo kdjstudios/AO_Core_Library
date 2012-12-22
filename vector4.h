@@ -11,9 +11,9 @@ namespace core
 class vector4
 {
 public:
-    float x,y,z,w;
+    double x,y,z,w;
     vector4():x(0),y(0),z(0),w(0) {}
-    vector4(float const&newX,float const&newY,float const&newZ,float const&newW):x(newX),y(newY),z(newZ),w(newW) {}
+    vector4(double const&newX,double const&newY,double const&newZ,double const&newW):x(newX),y(newY),z(newZ),w(newW) {}
     //
 
 };
@@ -30,12 +30,12 @@ inline vector4 operator+(vector4 const&lhs,vector4 const&rhs)
     return vector4(lhs.x+rhs.x,lhs.y+rhs.y,lhs.z+rhs.z,lhs.w+rhs.w);
 }
 //Divides the vector4 objects
-inline vector4 operator/(vector4 const&lhs,float const&rhs)
+inline vector4 operator/(vector4 const&lhs,double const&rhs)
 {
     return vector4(lhs.x/rhs,lhs.y/rhs,lhs.z/rhs,lhs.w/rhs);
 }
 //Multiplies the vector4 objects
-inline vector4 operator*(vector4 const &lhs,float rhs)
+inline vector4 operator*(vector4 const &lhs,double rhs)
 {
     vector4 result;
     result.x=lhs.x * rhs;
@@ -43,8 +43,8 @@ inline vector4 operator*(vector4 const &lhs,float rhs)
     result.z=lhs.z * rhs;
     return result;
 }
-//Multiplies the vector4 object by float
-inline vector4 operator*(float lhs,vector4 const &rhs)
+//Multiplies the vector4 object by double
+inline vector4 operator*(double lhs,vector4 const &rhs)
 {
     vector4 result;
     result.x=rhs.x * lhs;
@@ -53,18 +53,18 @@ inline vector4 operator*(float lhs,vector4 const &rhs)
     return result;
 }
 //Returns dot product of the vector4 objects
-inline float dot(vector4 const&lhs,vector4 const&rhs)
+inline double dot(vector4 const&lhs,vector4 const&rhs)
 {
     //return lhs.x*rhs.x+lhs.y*rhs.y+lhs.z*rhs.z;
     return lhs.x*rhs.x+lhs.y*rhs.y+lhs.z*rhs.z+rhs.w*rhs.w;
 }
 //Returns length squared of the vector4 object
-inline float lengthSquared(vector4 const&rhs)
+inline double lengthSquared(vector4 const&rhs)
 {
     return dot(rhs,rhs);
 }
 //Returns magnitude (length) of the vector4 object
-inline float magnitude(vector4 const &rhs)
+inline double magnitude(vector4 const &rhs)
 {
     return sqrt(dot(rhs, rhs));
 }

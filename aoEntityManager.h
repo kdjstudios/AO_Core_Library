@@ -40,8 +40,7 @@ public:
 
 };
 //provide easy access
-#define EntityManager EntityManger::Instance();
-}
-}
+#define EntityManager EntityManager::Instance();
+
 #endif
 

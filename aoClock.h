@@ -40,7 +40,7 @@ private:
 };
 
 //should be in project settings
-//#define USE_RDTSC
+#define USE_RDTSC
 #ifdef USE_RDTSC
 #include <windows.h>
 #endif

@@ -15,12 +15,12 @@ namespace core
 class matrix4x4
 {
 public:
-    float xx,xy,xz,xw;
-    float yx,yy,yz,yw;
-    float zx,zy,zz,zw;
-    float wx,wy,wz,ww;
+    double xx,xy,xz,xw;
+    double yx,yy,yz,yw;
+    double zx,zy,zz,zw;
+    double wx,wy,wz,ww;
     matrix4x4():xx(1),xy(0),xz(0),xw(0),yx(0),yy(1),yz(0),yw(0),zx(0),zy(0),zz(1),zw(0),wx(0),wy(0),wz(0),ww(1) {}
-    matrix4x4(float const&newXX,float const&newXY,float const&newXZ,float const&newXW,float const&newYX,float const&newYY,float const&newYZ,float const&newYW,float const&newZX,float const&newZY,float const&newZZ,float const&newZW,float const&newWX,float const&newWY,float const&newWZ,float const&newWW)
+    matrix4x4(double const&newXX,double const&newXY,double const&newXZ,double const&newXW,double const&newYX,double const&newYY,double const&newYZ,double const&newYW,double const&newZX,double const&newZY,double const&newZZ,double const&newZW,double const&newWX,double const&newWY,double const&newWZ,double const&newWW)
         :xx(newXX),xy(newXY),xz(newXZ),xw(newXW),yx(newYX),yy(newYY),yz(newYZ),yw(newYW),zx(newZX),zy(newZY),zz(newZZ),zw(newZW),wx(newWX),wy(newWY),wz(newWZ),ww(newWW) {}
 };
 
@@ -82,11 +82,11 @@ inline matrix4x4 look(vector3 const&eye,vector3 const&target,vector3 const&up)
                -dot(xAxis,eye),-dot(yAxis,eye),-dot(zAxis,eye),1);
 }
 //Calculates the matrix4x4 "perspective" from feild of view, aspect ratio, close, far
-inline matrix4x4 perspective(float fov,float aspect,float znear,float zfar)
+inline matrix4x4 perspective(double fov,double aspect,double znear,double zfar)
 {
-    //float yScale=::atan(.5*fov);
-    float yScale=atan(.5*fov);
-    float xScale=yScale/aspect;
+    //double yScale=::atan(.5*fov);
+    double yScale=atan(.5*fov);
+    double xScale=yScale/aspect;
     return matrix4x4(
                xScale,0,0,0,
                0,yScale,0,0,
@@ -112,12 +112,12 @@ inline matrix4x4 scale(vector3 const&vec)
                0,0,0,1);
 }
 //Calculates a rotation matrix4x4 on X-Axis by theta (degrees)
-inline matrix4x4 rotateX(float thetaX)
+inline matrix4x4 rotateX(double thetaX)
 {
-    //float C=cosf(thetaX);
-    //float S=sinf(thetaX);
-    float C=cos(thetaX);
-    float S=sin(thetaX);
+    //double C=cosf(thetaX);
+    //double S=sinf(thetaX);
+    double C=cos(thetaX);
+    double S=sin(thetaX);
     return matrix4x4(
                1,0,0,0,
                0,C,-S,0,
@@ -125,12 +125,12 @@ inline matrix4x4 rotateX(float thetaX)
                0,0,0,1);
 }
 //Calculates a rotation matrix4x4 on Y-Axis by theta (degrees)
-inline matrix4x4 rotateY(float thetaY)
+inline matrix4x4 rotateY(double thetaY)
 {
-    //float C=cosf(thetaY);
-    //float S=sinf(thetaY);
-    float C=cos(thetaY);
-    float S=sin(thetaY);
+    //double C=cosf(thetaY);
+    //double S=sinf(thetaY);
+    double C=cos(thetaY);
+    double S=sin(thetaY);
     return matrix4x4(
                C,0,-S,0,
                0,1,0,0,
@@ -138,12 +138,12 @@ inline matrix4x4 rotateY(float thetaY)
                0,0,0,1);
 }
 //Calculates a rotation matrix4x4 on Z-Axis by theta (degrees)
-inline matrix4x4 rotateZ(float thetaZ)
+inline matrix4x4 rotateZ(double thetaZ)
 {
-    //float C=cosf(thetaZ);
-    //float S=sinf(thetaZ);
-    float C=cos(thetaZ);
-    float S=sin(thetaZ);
+    //double C=cosf(thetaZ);
+    //double S=sinf(thetaZ);
+    double C=cos(thetaZ);
+    double S=sin(thetaZ);
     return matrix4x4(
                C,-S,0,0,
                S,C,0,0,
@@ -151,21 +151,21 @@ inline matrix4x4 rotateZ(float thetaZ)
                0,0,0,1);
 }
 //Calculates a rotation matrix4x4 on all Axis; First Y, Second X, Thrid Z (degrees)
-inline matrix4x4 rotateYXZ(float pitch,float roll, float yaw)
+inline matrix4x4 rotateYXZ(double pitch,double roll, double yaw)
 {
     //x=roll
     //y=pitch
     //z=yaw
     matrix4x4 temp;
-    if(!equ(pitch,0.0f))
+    if(!equ(pitch,0.0))
     {
         temp=rotateY(pitch);
     }
-    if(!equ(roll,0.0f))
+    if(!equ(roll,0.0))
     {
         temp=temp*rotateX(roll);
     }
-    if(!equ(yaw,0.0f))
+    if(!equ(yaw,0.0))
     {
         temp=temp*rotateZ(yaw);
     }
@@ -184,7 +184,7 @@ inline vector4 operator*(vector4 const& lhs,matrix4x4 const&rhs)
 inline vector3 transform(vector3 const&lhs,matrix4x4 const&rhs)
 {
     vector4 result=vector4(lhs.X,lhs.Y,lhs.Z,1)*rhs;
-    float coeff=1/result.w;
+    double coeff=1/result.w;
     return vector3(result.x,result.y,result.z)*coeff;
 }
 //Output display of values

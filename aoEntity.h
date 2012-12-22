@@ -8,10 +8,9 @@ ONLY FILE NEEDED TO INCLUDE
 #include "aoTelegram.h"
 #include "aoMath.h"
 
-
 namespace ao
 {
-
+	using namespace core;
 namespace graphics
 {
 
@@ -38,7 +37,7 @@ private:
     bool m_Die;
     //-------------------------------
 protected:
-    vector3 m_Position;
+	vector3 m_Position;
     vector3 m_Scale;
     double m_BoundingRadius;
 public:
@@ -101,7 +100,7 @@ public:
 
     bool         IsFlagged()const
     {
-        return m_Flag;
+        return m_Flag != 0;
     }
     void         Flag()
     {

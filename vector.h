@@ -186,6 +186,11 @@ template <class T> void Vector<T>::unchecked_append(const T& val)
 {
     alloc.construct(avail++,val);
 }
+//excess str function
+template <class T> Vector<T>* clone(const Vector<T>* vp)
+{
+    return new Vector<T>(*vp);
+}
 }
 }
 #endif

@@ -12,11 +12,11 @@ namespace core
 class matrix3x3
 {
 public:
-    float xx,xy,xz;
-    float yx,yy,yz;
-    float zx,zy,zz;
+    double xx,xy,xz;
+    double yx,yy,yz;
+    double zx,zy,zz;
     matrix3x3():xx(1),xy(0),xz(0),yx(0),yy(1),yz(0),zx(0),zy(0),zz(1) {}
-    matrix3x3(float const&newXX,float const&newXY,float const&newXZ,float const&newYX,float const&newYY,float const&newYZ,float const&newZX,float const&newZY,float const&newZZ)
+    matrix3x3(double const&newXX,double const&newXY,double const&newXZ,double const&newYX,double const&newYY,double const&newYZ,double const&newZX,double const&newZY,double const&newZZ)
         :xx(newXX),xy(newXY),xz(newXZ),yx(newYX),yy(newYY),yz(newYZ),zx(newZX),zy(newZY),zz(newZZ) {}
 };
 

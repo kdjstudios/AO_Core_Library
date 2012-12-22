@@ -90,7 +90,9 @@ template<class For,class X> void replace(For begin,For end, const X& x, const X&
 template<class TYPE>
 TYPE abs(const TYPE& left)
 {
-    return abs(left);
+    unsigned long long* x = (unsigned long long*)&left;
+    *x &= 0x7fffffffffffffff;
+    return left;
 }
 //Clamps Value
 template<class TYPE> TYPE Clamp(const TYPE& value, const TYPE& max)

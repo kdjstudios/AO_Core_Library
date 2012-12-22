@@ -18,12 +18,12 @@ class vector3
 {
 public:
     //Members
-    float X;
-    float Y;
-    float Z;
+    double X;
+    double Y;
+    double Z;
     //Constructors
     vector3();
-    explicit vector3(float const&x, float const&y, float const&z);
+    explicit vector3(double const&x, double const&y, double const&z);
     //vector3 by vector3 Math
     vector3		operator+(const vector3& vector) const;
     vector3		operator-(const vector3& vector) const;
@@ -33,16 +33,16 @@ public:
     vector3&	operator-=(const vector3& vector);
     vector3&	operator*=(const vector3& vector);
     vector3&	operator/=(const vector3& vector);
-    //vector3 by Float Math
+    //vector3 by double Math
     vector3		operator-() const;
-    vector3		operator+(float const&num) const;
-    vector3		operator-(float const&num) const;
-    vector3		operator*(float const&num) const;
-    vector3		operator/(float const&num) const;
-    vector3&	operator+=(float const&num);
-    vector3&	operator-=(float const&num);
-    vector3&	operator*=(float const&num);
-    vector3&	operator/=(float const&num);
+    vector3		operator+(double const&num) const;
+    vector3		operator-(double const&num) const;
+    vector3		operator*(double const&num) const;
+    vector3		operator/(double const&num) const;
+    vector3&	operator+=(double const&num);
+    vector3&	operator-=(double const&num);
+    vector3&	operator*=(double const&num);
+    vector3&	operator/=(double const&num);
     //Boolean Equals Operators
     bool		operator==(const vector3& vector) const;
     bool		operator!=(const vector3& vector) const;
@@ -61,7 +61,7 @@ public:
 
 //Constructors
 inline vector3::vector3() {}
-inline vector3::vector3(float const&x, float const&y, float const&z): X( x ), Y( y ), Z( z ) {}
+inline vector3::vector3(double const&x, double const&y, double const&z): X( x ), Y( y ), Z( z ) {}
 
 // Math
 inline vector3 vector3::operator+(const vector3& vector) const
@@ -116,24 +116,24 @@ inline vector3 vector3::operator-() const
 {
     return vector3(-X,-Y,-Z);
 }
-inline vector3 vector3::operator-(float const&num) const
+inline vector3 vector3::operator-(double const&num) const
 {
     return vector3(X - num, Y - num, Z - num);
 }
-inline vector3 vector3::operator+(float const&num) const
+inline vector3 vector3::operator+(double const&num) const
 {
     return vector3(X + num, Y + num, Z + num);
 }
-inline vector3 vector3::operator*(float const&num) const
+inline vector3 vector3::operator*(double const&num) const
 {
     return vector3(X * num, Y * num, Z * num);
 }
 
-inline vector3 vector3::operator/(float const&num) const
+inline vector3 vector3::operator/(double const&num) const
 {
     return vector3(X / num, Y / num, Z / num);
 }
-inline vector3& vector3::operator+=(const float& num)
+inline vector3& vector3::operator+=(const double& num)
 {
     X += num;
     Y += num;
@@ -141,14 +141,14 @@ inline vector3& vector3::operator+=(const float& num)
     return *this;
 }
 
-inline vector3& vector3::operator-=(const float& num)
+inline vector3& vector3::operator-=(const double& num)
 {
     X -= num;
     Y -= num;
     Z -= num;
     return *this;
 }
-inline vector3& vector3::operator*=(const float& num)
+inline vector3& vector3::operator*=(const double& num)
 {
     X *= num;
     Y *= num;
@@ -156,7 +156,7 @@ inline vector3& vector3::operator*=(const float& num)
     return *this;
 }
 
-inline vector3& vector3::operator/=(const float& num)
+inline vector3& vector3::operator/=(const double& num)
 {
     X /= num;
     Y /= num;
@@ -189,49 +189,49 @@ const vector3 vector3::Backward = vector3(0.f, 0.f, -1.f);
 //Fast non-member functions
 //-----------------------------------------------------------------------------
 
-//Returns (Float) dot product of the two vector3 objects
-inline float dot(vector3 const&vec1,vector3 const&vec2)
+//Returns (double) dot product of the two vector3 objects
+inline double dot(vector3 const&vec1,vector3 const&vec2)
 {
     return vec2.X*vec1.X+vec2.Y*vec1.Y+vec2.Z*vec1.Z;
 }
-//Returns (Float) length squared of the vector3 object
-inline float lengthSquared(vector3 const&vector)
+//Returns (double) length squared of the vector3 object
+inline double lengthSquared(vector3 const&vector)
 {
     return dot(vector,vector);
 }
-//Returns (Float) magnitude (length) of the vector3 object
-inline float magnitude(vector3 const &vector)
+//Returns (double) magnitude (length) of the vector3 object
+inline double magnitude(vector3 const &vector)
 {
     return sqrt(dot(vector, vector));
 }
-//Returns (Float) distance squared between the two vector3 objects
-inline float distanceSquared(vector3 const&vec1,vector3 const&vec2)
+//Returns (double) distance squared between the two vector3 objects
+inline double distanceSquared(vector3 const&vec1,vector3 const&vec2)
 {
     double ySeparation = vec1.Y - vec2.Y;
     double xSeparation = vec1.X - vec2.X;
     double zSeparation = vec1.Z - vec2.Z;
-    return (float)ySeparation*ySeparation + xSeparation*xSeparation+ zSeparation*zSeparation;
+    return (double)ySeparation*ySeparation + xSeparation*xSeparation+ zSeparation*zSeparation;
 }
-//Returns (Float) distance between the two vector3 objects
-inline float dist(vector3 const&vec1,vector3 const&vec2)
+//Returns (double) distance between the two vector3 objects
+inline double dist(vector3 const&vec1,vector3 const&vec2)
 {
     double ySeparation = vec1.Y - vec2.Y;
     double xSeparation = vec1.X - vec2.X;
     double zSeparation = vec1.Z - vec2.Z;
-    return sqrtf(ySeparation*ySeparation + xSeparation*xSeparation+ zSeparation*zSeparation);
+    return sqrt(ySeparation*ySeparation + xSeparation*xSeparation+ zSeparation*zSeparation);
 }
 
 
 
 //Voids
-inline void setMagnitude(vector3& vec2, float const&num)
+inline void setMagnitude(vector3& vec2, double const&num)
 {
     vec2 *= num / magnitude(vec2);
 }
 //Sets
-inline void setLengthSquared(vector3& vector, float const&num)
+inline void setLengthSquared(vector3& vector, double const&num)
 {
-    float vecLength = lengthSquared(vector);
+    double vecLength = lengthSquared(vector);
 
     if(vecLength == 0)
     {
@@ -249,7 +249,7 @@ inline void toNormalized(vector3 &vector)
 {
     vector *= (1.f /(magnitude(vector)));
 }
-inline void toPolar(vector3 &vector,float const&x, float const&y, float const&z)
+inline void toPolar(vector3 &vector,double const&x, double const&y, double const&z)
 {
     vector=vector3(
                atan2(y,x),
@@ -257,33 +257,33 @@ inline void toPolar(vector3 &vector,float const&x, float const&y, float const&z)
                z);
 }
 
-inline void toCartesian(vector3 &vector,float const&radius, float const&angle, float const&z)
+inline void toCartesian(vector3 &vector,double const&radius, double const&angle, double const&z)
 {
     vector= vector3(
                 radius * cos(angle),
                 radius * sin(angle),
                 z);
 }
-inline void toEuler(vector3 &vector,vector3 axis, float const& angle)
+inline void toEuler(vector3 &vector,vector3 axis, double const& angle)
 {
     vector3 out = vector3();
 
-    float s = sin(angle);
-    float c = cos(angle);
-    float t = static_cast<float>(1.0) - c;
+    double s = sin(angle);
+    double c = cos(angle);
+    double t = static_cast<double>(1.0) - c;
 
-    if ((axis.X * axis.Y * t + axis.Z * s) > static_cast<float>(0.998))// north pole singularity detected
+    if ((axis.X * axis.Y * t + axis.Z * s) > static_cast<double>(0.998))// north pole singularity detected
     {
-        out.Y = static_cast<float>(2.0) * atan2(axis.X * sin(angle / static_cast<float>(2.0)), cos(angle / static_cast<float>(2.0)));
-        out.Z = static_cast<float>(1.57079633);//PI/2
+        out.Y = static_cast<double>(2.0) * atan2(axis.X * sin(angle / static_cast<double>(2.0)), cos(angle / static_cast<double>(2.0)));
+        out.Z = static_cast<double>(1.57079633);//PI/2
         out.X = 0;
         vector= out;
         return;
     }
-    if ((axis.X * axis.Y * t + axis.Z * s) < static_cast<float>(-0.998))// south pole singularity detected
+    if ((axis.X * axis.Y * t + axis.Z * s) < static_cast<double>(-0.998))// south pole singularity detected
     {
-        out.Y = static_cast<float>(-2.0) * atan2(axis.X * sin(angle / static_cast<float>(2.0)), cos(angle / static_cast<float>(2.0)));
-        out.Z = -static_cast<float>(1.57079633);//PI/2
+        out.Y = static_cast<double>(-2.0) * atan2(axis.X * sin(angle / static_cast<double>(2.0)), cos(angle / static_cast<double>(2.0)));
+        out.Z = -static_cast<double>(1.57079633);//PI/2
         out.X = 0;
         vector=out;
         return;
@@ -326,7 +326,7 @@ inline void toZero(vector3 &vec2)
 //Returns (Boolean) True if the vector3 object is zero else False
 inline const bool isZero(vector3 const&vector)
 {
-    return (vector.X*vector.X+vector.Y*vector.Y+vector.Z*vector.Z)<(float)0.000001;//EPSILON
+    return (vector.X*vector.X+vector.Y*vector.Y+vector.Z*vector.Z)<(double)0.000001;//EPSILON
 }
 //TODO:Returns negative or positive (value of one)
 inline const int sign(const vector3& vec1,const vector3& vec2)
@@ -351,30 +351,30 @@ inline vector3 negate(vector3 const &vec1)
 inline vector3 reflect(vector3 const& vec1, const vector3& vec2 )
 {
     vector3 out;
-    const float dotProductTimesTwo = dot(vec2,vec1) * 2.0f;
+    const double dotProductTimesTwo = dot(vec2,vec1) * 2.0f;
     out.X=vec2.X -(dotProductTimesTwo * vec1.X);
     out.Y=vec2.Y - (dotProductTimesTwo * vec1.Y);
     out.Z=vec2.Z -(dotProductTimesTwo * vec1.Z);
     return out;
 }
 //Returns (vector3) of vec1 linearly interpolated to vec2 with the percent of num
-inline vector3 lerp(vector3 const&vec1, vector3 const&vec2, float const& num)
+inline vector3 lerp(vector3 const&vec1, vector3 const&vec2, double const& num)
 {
     return (vec1 + ((vec2 - vec1)*num));
 }
 //TODO: Clamp value
 //Returns (vector3) of vec1 Spherically interpolated to vec2 with the percent of num
-inline vector3 slerp(vector3 const& vec1, vector3 const&vec2, float const& num)
+inline vector3 slerp(vector3 const& vec1, vector3 const&vec2, double const& num)
 {
-    float doot = dot(vec1, vec2);
+    double doot = dot(vec1, vec2);
     //math.clamp(doot, -1,1);
-    float theta = acos(doot)*num;
+    double theta = acos(doot)*num;
     vector3 RelativeVec = vec2 - vec1*doot;
     toNormalized(RelativeVec);
     return ((vec1*cos(theta)) + (RelativeVec*sin(theta)));
 }
 //Returns (vector3) of "Normalized" vec1 interpolated to vec2 with the percent of num
-inline vector3 nlerp(vector3 const& vec1, vector3 const&vec2, float const& num)
+inline vector3 nlerp(vector3 const& vec1, vector3 const&vec2, double const& num)
 {
     return normalize(lerp(vec1,vec2,num));
 }

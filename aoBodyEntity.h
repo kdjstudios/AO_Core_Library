@@ -13,26 +13,26 @@ namespace graphics
 class BodyEntity:public BaseEntity
 {
 protected:
-    float t;
-    float c;
-    float v;
-    float m;
-    float s;
+    double t;
+    double c;
+    double v;
+    double m;
+    double s;
 public:
     BodyEntity();
     virtual ~BodyEntity() {}
 
     //Functionality
-    float  Velocity()const
+    double  Velocity()const
     {
         return v;
     }
-    void      SetVelocity(const float& new_Vel)
+    void      SetVelocity(const double& new_Vel)
     {
         v = new_Vel;
     }
 
-    float     Mass()const
+    double     Mass()const
     {
         return m;
     }
@@ -56,10 +56,10 @@ public:
     {
         c = new_dragCoeffiecient;
     }
-    void      StepSimulation(float dt);
-    void      StepSimulationAdaptive(float dt);
-    void      StepSimulationImproved(float dt);
-    void      StepSimulationRunge(float dt);
+    void      StepSimulation(double dt);
+    void      StepSimulationAdaptive(double dt);
+    void      StepSimulationImproved(double dt);
+    void      StepSimulationRunge(double dt);
 };
 inline BodyEntity::BodyEntity()
 {
@@ -71,13 +71,13 @@ inline BodyEntity::BodyEntity()
 }
 //Physic Stuffs
 //Eulers basic method
-inline void BodyEntity::StepSimulation(float dt)
+inline void BodyEntity::StepSimulation(double dt)
 {
     //placeholders for calculations
-    float F;
-    float A;
-    float V;
-    float S;
+    double F;
+    double A;
+    double V;
+    double S;
 
     //calculate the total force
     F=(t-(c*v));
@@ -92,18 +92,18 @@ inline void BodyEntity::StepSimulation(float dt)
     v=V;
     s=S;
 }
-inline void BodyEntity::StepSimulationAdaptive(float dt)
+inline void BodyEntity::StepSimulationAdaptive(double dt)
 {
-    float F;
-    float A;
-    float V;
-    float S;
-    float V1;
-    float V2;
-    float DT;
-    float ET;
+    double F;
+    double A;
+    double V;
+    double S;
+    double V1;
+    double V2;
+    double DT;
+    double ET;
     //
-    float ETO;
+    double ETO;
     //take one step to estimate
     F=(t-(c*v));
     A = F/m;
@@ -137,15 +137,15 @@ inline void BodyEntity::StepSimulationAdaptive(float dt)
     v=V;
     s=S;
 }
-inline void BodyEntity::StepSimulationImproved(float dt)
+inline void BodyEntity::StepSimulationImproved(double dt)
 {
     //placeholders for calculations
-    float F;
-    float A;
-    float V;
-    float S;
-    float K1;
-    float K2;
+    double F;
+    double A;
+    double V;
+    double S;
+    double K1;
+    double K2;
 
     F=(t-(c*v));
     A = F/m;
@@ -162,17 +162,17 @@ inline void BodyEntity::StepSimulationImproved(float dt)
     v=V;
     s=S;
 }
-inline void BodyEntity::StepSimulationRunge(float dt)
+inline void BodyEntity::StepSimulationRunge(double dt)
 {
     //placeholders for calculations
-    float F;
-    float A;
-    float V;
-    float S;
-    float K1;
-    float K2;
-    float K3;
-    float K4;
+    double F;
+    double A;
+    double V;
+    double S;
+    double K1;
+    double K2;
+    double K3;
+    double K4;
 
     F=(t-(c*v));
     A = F/m;

@@ -16,88 +16,88 @@ namespace core
 // (struct template)
 // ----------
 // + vec : vector2
-// + r : float
+// + r : double
 // + Circle()
-// + circle(float,vector2)
+// + circle(double,vector2)
 // ----------
 // + set(vector2) : void
-// + set(float) : void
-// + set(float, vector2) : float
-// + set(int, vector2) : float
-// + get(vector2) : float
-// + get(float) : float
-// + get(float,vector2) : void
-// + get(float,float) : void
+// + set(double) : void
+// + set(double, vector2) : double
+// + set(int, vector2) : double
+// + get(vector2) : double
+// + get(double) : double
+// + get(double,vector2) : void
+// + get(double,double) : void
 // ----------
 //
 struct Circle
 {
     vector2 vec;
-    float r;
+    double r;
     Circle():r(0),vec(vector2()) {}
-    Circle(float const&newR,vector2 const&newVec):r(newR),vec(newVec) {}
+    Circle(double const&newR,vector2 const&newVec):r(newR),vec(newVec) {}
     //Excess
     void set(vector2 const&newVec);
-    void set(float const&newR);
-    void set(float const&newR,vector2 const&newVec);
+    void set(double const&newR);
+    void set(double const&newR,vector2 const&newVec);
     void set(int count,vector2 const*vertices);
     void get(vector2 &newVec) const;
-    void get(float &newR) const;
-    void get(float &newR,vector2 &newVec) const;
-    void get(float &newX,float &newY) const ;
+    void get(double &newR) const;
+    void get(double &newR,vector2 &newVec) const;
+    void get(double &newX,double &newY) const ;
 };
 //
 // Sphere
 // (struct template)
 // ----------
 // + vec : vector3
-// + r : float
+// + r : double
 // + Sphere()
-// + Sphere(float,vector3)
+// + Sphere(double,vector3)
 // ----------
 // + set(vector3) : void
-// + set(float) : void
-// + set(float, vector3) : float
-// + set(int, vector3) : float
-// + get(vector3) : float
-// + get(float) : float
-// + get(float,vector3) : void
-// + get(float,float,float) : void
+// + set(double) : void
+// + set(double, vector3) : double
+// + set(int, vector3) : double
+// + get(vector3) : double
+// + get(double) : double
+// + get(double,vector3) : void
+// + get(double,double,double) : void
 // ----------
 //
 struct Sphere
 {
     vector3 vec;
-    float r;
+    double r;
     Sphere():r(0),vec(vector3()) {}
-    Sphere(float const&newR,vector3 const&newVec):r(newR),vec(newVec) {}
+    Sphere(double const&newR,vector3 const&newVec):r(newR),vec(newVec) {}
     //Excess
     void set(vector3 const&newVec);
-    void set(float const&newR);
-    void set(float const&newR,vector3 const&newVec);
+    void set(double const&newR);
+    void set(double const&newR,vector3 const&newVec);
     void set(int count,vector3 const*vertices);;
     void get(vector3 &newVec) const;
-    void get(float &newR) const;
-    void get(float &newR,vector3 &newVec) const;
-    void get(float &newX,float &newY,float &newZ) const ;
+    void get(double &newR) const;
+    void get(double &newR,vector3 &newVec) const;
+    void get(double &newX,double &newY,double &newZ) const ;
 };
 //
 // Plane
 // (struct template)
 // ----------
 // + normal : vector3
-// + d : float
+// + d : double
 // + Plane()
-// + Plane(vector3,float)
+// + Plane(vector3,double)
 // + Plane(vector3, vector3, vector3)
 // ----------
 //
 struct Plane
 {
     vector3 normal;
-    float d;
+    double d;
     Plane();
-    Plane(vector3 const&,float);
+    Plane(vector3 const&,double);
     Plane(vector3 const&a,vector3 const&b,vector3 const&c);
 };
 //
@@ -141,11 +141,11 @@ inline void Circle::set(vector2 const&newVec)
 {
     vec=newVec;
 }
-inline void Circle::set(float const&newR)
+inline void Circle::set(double const&newR)
 {
     r=newR;
 }
-inline void Circle::set(float const&newR,vector2 const&newVec)
+inline void Circle::set(double const&newR,vector2 const&newVec)
 {
     set(newR);
     set(newVec);
@@ -167,16 +167,16 @@ inline void Circle::get(vector2 &newVec)const
 {
     newVec=vec;
 }
-inline void Circle::get(float &newR) const
+inline void Circle::get(double &newR) const
 {
     newR=r;
 }
-inline void Circle::get(float &newR,vector2 &newVec) const
+inline void Circle::get(double &newR,vector2 &newVec) const
 {
     get(newR);
     get(newVec);
 }
-inline void Circle::get(float &newX,float &newY) const
+inline void Circle::get(double &newX,double &newY) const
 {
     newX=vec.X;
     newY=vec.Y;
@@ -187,11 +187,11 @@ inline void Sphere::set(vector3 const&newVec)
 {
     vec=newVec;
 }
-inline void Sphere::set(float const&newR)
+inline void Sphere::set(double const&newR)
 {
     r=newR;
 }
-inline void Sphere::set(float const&newR,vector3 const&newVec)
+inline void Sphere::set(double const&newR,vector3 const&newVec)
 {
     set(newR);
     set(newVec);
@@ -213,16 +213,16 @@ inline void Sphere::get(vector3 &newVec)const
 {
     newVec=vec;
 }
-inline void Sphere::get(float &newR) const
+inline void Sphere::get(double &newR) const
 {
     newR=r;
 }
-inline void Sphere::get(float &newR,vector3 &newVec) const
+inline void Sphere::get(double &newR,vector3 &newVec) const
 {
     get(newR);
     get(newVec);
 }
-inline void Sphere::get(float &newX,float &newY,float &newZ) const
+inline void Sphere::get(double &newX,double &newY,double &newZ) const
 {
     newX=vec.X;
     newY=vec.Y;
@@ -235,7 +235,7 @@ inline Plane::Plane()
     normal=vector3();
     d=0;
 }
-inline Plane::Plane(vector3 const&newNormal,float newD)
+inline Plane::Plane(vector3 const&newNormal,double newD)
 {
     //
     normal=newNormal;

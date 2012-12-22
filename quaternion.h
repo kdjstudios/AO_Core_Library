@@ -20,10 +20,10 @@ class Quaternion
 {
 public:
     //Members
-    float W,X,Y,Z;
+    double W,X,Y,Z;
     //Constructors
     Quaternion();
-    explicit Quaternion(float const&w,float const&x,float const&y,float const&z);
+    explicit Quaternion(double const&w,double const&x,double const&y,double const&z);
     //Math
     //Vector3 by Vector3 Math
     Quaternion		operator+(const Quaternion& Quat) const;
@@ -34,16 +34,16 @@ public:
     Quaternion&		operator-=(const Quaternion& Quat);
     Quaternion&		operator*=(const Quaternion& Quat);
     Quaternion&		operator/=(const Quaternion& Quat);
-    //Vector3 by Float Math
+    //Vector3 by double Math
     Quaternion		operator-() const;
-    Quaternion		operator+(float const&num) const;
-    Quaternion		operator-(float const&num) const;
-    Quaternion		operator*(float const&num) const;
-    Quaternion		operator/(float const&num) const;
-    Quaternion&		operator+=(float const&num);
-    Quaternion&		operator-=(float const&num);
-    Quaternion&		operator*=(float const&num);
-    Quaternion&		operator/=(float const&num);
+    Quaternion		operator+(double const&num) const;
+    Quaternion		operator-(double const&num) const;
+    Quaternion		operator*(double const&num) const;
+    Quaternion		operator/(double const&num) const;
+    Quaternion&		operator+=(double const&num);
+    Quaternion&		operator-=(double const&num);
+    Quaternion&		operator*=(double const&num);
+    Quaternion&		operator/=(double const&num);
     //Boolean Equals Operators
     bool		operator==(const Quaternion& Quat) const;
     bool		operator!=(const Quaternion& Quat) const;
@@ -54,14 +54,14 @@ public:
     friend std::ostream& operator<< (std::ostream& ofs, const Quaternion& Quat);
 
 };
-//float mag(Quaternion const &rhs);
-//float dot(Quaternion const &lhs, Quaternion const &rhs);
-//float lsq(Quaternion const&rhs);
+//double mag(Quaternion const &rhs);
+//double dot(Quaternion const &lhs, Quaternion const &rhs);
+//double lsq(Quaternion const&rhs);
 //Quaternion norm(Quaternion const &lhs);
-//Quaternion rotate(float const&lhs,Quaternion const &rhs);
+//Quaternion rotate(double const&lhs,Quaternion const &rhs);
 
 inline Quaternion::Quaternion():W(0),X(0),Y(0),Z(0) {}
-inline Quaternion::Quaternion(float const&w,float const&x,float const&y,float const&z):W(w),X(x),Y(y),Z(z) {}
+inline Quaternion::Quaternion(double const&w,double const&x,double const&y,double const&z):W(w),X(x),Y(y),Z(z) {}
 //
 const Quaternion Quaternion::Zero=Quaternion(0,0,0,0);
 const Quaternion Quaternion::One=Quaternion(1,1,1,1);
@@ -91,11 +91,11 @@ inline Quaternion Quaternion::operator/(const Quaternion& Quat) const
     return Quaternion();
 }
 //Quanterns (still in testing of functionality)
-inline Quaternion Quaternion::operator/(float const&num) const
+inline Quaternion Quaternion::operator/(double const&num) const
 {
     return Quaternion(W/num,X/num,Y/num,Z/num);
 }
-inline Quaternion Quaternion::operator*(float const&num) const
+inline Quaternion Quaternion::operator*(double const&num) const
 {
     Quaternion result;
     result.X=X * num;
@@ -114,15 +114,15 @@ inline void toNormalized(Quaternion & rhs)
     rhs.W /= n;
 }
 //
-inline float dot(Quaternion const&lhs,Quaternion const&rhs)
+inline double dot(Quaternion const&lhs,Quaternion const&rhs)
 {
     return lhs.X*rhs.X+lhs.Y*rhs.Y+lhs.Z*rhs.Z+rhs.W*rhs.W;
 }
-inline float lengthSquared(Quaternion const&rhs)
+inline double lengthSquared(Quaternion const&rhs)
 {
     return dot(rhs,rhs);
 }
-inline float magnitude(Quaternion const &rhs)
+inline double magnitude(Quaternion const &rhs)
 {
     return sqrt(dot(rhs, rhs));
 }
@@ -130,7 +130,7 @@ inline Quaternion normalize(Quaternion const &lhs)
 {
     return lhs * (1.0f /(magnitude(lhs)));
 }
-inline Quaternion rotate(float const &lhs,Quaternion const &rhs)
+inline Quaternion rotate(double const &lhs,Quaternion const &rhs)
 {
     //rotation
     Quaternion temp(
@@ -150,7 +150,7 @@ inline void toEuler(Quaternion q1)
     double sqz = q1.Z*q1.Z;
     double unit = sqx + sqy + sqz + sqw; // if normalised is one, otherwise is correction factor
     double test = q1.X*q1.Y + q1.Z*q1.W;
-    float heading, attitude, bank;
+    double heading, attitude, bank;
     if (test > 0.499*unit)   // singularity at north pole
     {
         heading = 2 * atan2(q1.X,q1.W);
@@ -165,9 +165,9 @@ inline void toEuler(Quaternion q1)
         bank = 0;
         return;
     }
-    heading = atan2(2*q1.Y*q1.W-2*q1.X*q1.Z , sqx - sqy - sqz + sqw);
+    heading = atan2((double) (2*q1.Y*q1.W-2*q1.X*q1.Z) ,(double)( sqx - sqy - sqz + sqw));
     attitude = asin(2*test/unit);
-    bank = atan2(2*q1.X*q1.W-2*q1.Y*q1.Z , -sqx + sqy - sqz + sqw);
+    bank = atan2((double)(2*q1.X*q1.W-2*q1.Y*q1.Z ),(double) (-sqx + sqy - sqz + sqw));
 }
 //
 inline void toAxisAngle(Quaternion &q1)
@@ -177,7 +177,7 @@ inline void toAxisAngle(Quaternion &q1)
         toNormalized(q1); // if w>1 acos and sqrt will produce errors, this cant happen if quaternion is normalised
     }
 
-    float angle = 2 * acos(q1.W);
+    double angle = 2 * acos(q1.W);
     double s = sqrt(1-q1.W*q1.W); // assuming quaternion normalised then w is less than 1, so term always positive.
     if (s < 0.001)   // test to avoid divide by zero, s is always positive due to sqrt
     {

@@ -74,11 +74,7 @@ public:
 std::ostream& operator<<(std::ostream&, const Str&);
 Str operator+(const Str&, const Str&);
 
-//excess str function
-template <class T> Vector<char>* clone(const Vector<char>* vp)
-{
-    return new Vector<char>(*vp);
-}
+
 }
 }
 #endif

@@ -13,38 +13,38 @@ namespace core
 // Line
 // (struct template)
 // ----------
-// + m : float
-// + b : float
+// + m : double
+// + b : double
 // + Line()
-// + Line(float,float)
-// + Line(float,float, float,float)
+// + Line(double,double)
+// + Line(double,double, double,double)
 // ----------
 // + compute : void
 // + compute : void
 // + setM : void
 // + setB : void
-// + getM : float
-// + getB : float
-// + getX : float
-// + getY : float
+// + getM : double
+// + getB : double
+// + getX : double
+// + getY : double
 // ----------
 //
 struct Line
 {
-    float M,B;
+    double M,B;
     Line();
-    Line(float const&newM,float const&newB);
+    Line(double const&newM,double const&newB);
     Line(vector2 const&V1,vector2 const&V2);
-    Line(float const&xOne,float const&yOne,float const&xTwo,float const&yTwo);
+    Line(double const&xOne,double const&yOne,double const&xTwo,double const&yTwo);
     //Excess
-    void compute(float const&xOne,float const&yOne,float const&xTwo,float const&yTwo);
+    void compute(double const&xOne,double const&yOne,double const&xTwo,double const&yTwo);
     void compute(vector2 const&V1,vector2 const&V2);
-    void setM(float const&newM);
-    void setB(float const&newB);
-    float getY(float const&X);
-    float getX(float const&Y);
-    float getM();
-    float getB();
+    void setM(double const&newM);
+    void setB(double const&newB);
+    double getY(double const&X);
+    double getX(double const&Y);
+    double getM();
+    double getB();
 };
 
 //line
@@ -53,12 +53,12 @@ inline Line::Line()
     M=0;
     B=0;
 }
-inline Line::Line(float const& newM,float const&newB)
+inline Line::Line(double const& newM,double const&newB)
 {
     M=newM;
     B=newB;
 }
-inline Line::Line(float const&xOne,float const&yOne,float const&xTwo,float const&yTwo)
+inline Line::Line(double const&xOne,double const&yOne,double const&xTwo,double const&yTwo)
 {
     //compute(xOne,yOne,xTwo,yTwo);
     M=(yOne-yTwo)/(xOne-xTwo);
@@ -72,7 +72,7 @@ inline Line::Line(vector2 const&V1,vector2 const&V2)
 }
 
 //Line
-inline void Line::compute(float const&xOne,float const&yOne,float const&xTwo,float const&yTwo)
+inline void Line::compute(double const&xOne,double const&yOne,double const&xTwo,double const&yTwo)
 {
     M=(yOne-yTwo)/(xOne-xTwo);
     B=yOne-(M*xOne);
@@ -81,28 +81,28 @@ inline void Line::compute(vector2 const&V1,vector2 const&V2)
 {
     compute(V1.X,V1.Y,V2.X,V2.Y);
 }
-inline void Line::setM(float const&newM)
+inline void Line::setM(double const&newM)
 {
     M=newM;
 }
-inline void Line::setB(float const&newB)
+inline void Line::setB(double const&newB)
 {
     B=newB;
 }
-inline float Line::getY(float const&X)
+inline double Line::getY(double const&X)
 {
     return (M*X)+B;
 }
-inline float Line::getX(float const&Y)
+inline double Line::getX(double const&Y)
 {
     //y=M*x+B
     return 0;
 }
-inline float Line::getM()
+inline double Line::getM()
 {
     return M;
 }
-inline float Line::getB()
+inline double Line::getB()
 {
     return B;
 }
@@ -218,8 +218,8 @@ bool CheckLineTri( vector3 TP1, vector3 TP2, vector3 TP3, vector3 LP1, vector3 L
     Normal = normalize(Normal); // not really needed
 
     // Find distance from LP1 and LP2 to the plane defined by the triangle
-    float Dist1 = dot((LP1-TP1), Normal );
-    float Dist2 = dot((LP2-TP1), Normal );
+    double Dist1 = dot((LP1-TP1), Normal );
+    double Dist2 = dot((LP2-TP1), Normal );
     if ( (Dist1 * Dist2) >= 0.0f) return false;  // line doesn't cross the triangle.
     if ( Dist1 == Dist2) return false;// line and plane are parallel
 

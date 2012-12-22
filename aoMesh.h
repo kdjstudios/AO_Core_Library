@@ -5,8 +5,8 @@ ONLY FILE NEEDED TO INCLUDE
 #ifndef AOMESH_H
 #define AOMESH_H
 #include "vector3.h"
+//#include "vector.h"
 #include <vector>
-
 namespace ao
 {
 namespace graphics
@@ -37,11 +37,10 @@ namespace graphics
 class Mesh
 {
 public:
-    typedef vector3 Vertex;
+    //typedef vector3 Vertex;
 private:
-//TODO: use my vector
-    vector<Vertex> m_Verticies;
-    vector<int> m_Indicies;
+    Vector<vector3> m_Verticies;
+    Vector<int> m_Indicies;
 public:
     Mesh();
     Mesh(Vertex const*verticies,int vertexCount,int const*indicies,int indexCount)

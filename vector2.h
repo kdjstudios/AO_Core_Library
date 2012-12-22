@@ -19,14 +19,14 @@ class vector2
 {
 public:
     //Members
-    float X;
-    float Y;
+    double X;
+    double Y;
     //Constructors
     vector2();
-    explicit vector2(float const&newX,float const&newY);
+    explicit vector2(double const&newX,double const&newY);
     //vector2d() : X(0), Y(0) {}
-    //vector2d(float nx, float ny) : X(nx), Y(ny) {}
-    //explicit vector2d(float n) : X(n), Y(n) {}
+    //vector2d(double nx, double ny) : X(nx), Y(ny) {}
+    //explicit vector2d(double n) : X(n), Y(n) {}
     //vector2d(const vector2d& other) : X(other.X), Y(other.Y) {}
     //vector2d(const dimension2d& other) : X(other.Width), Y(other.Height) {}
     //Math
@@ -39,16 +39,16 @@ public:
     vector2&	operator-=(const vector2& vector);
     vector2&	operator*=(const vector2& vector);
     vector2&	operator/=(const vector2& vector);
-    //Vector3 by Float Math
+    //Vector3 by double Math
     vector2		operator-() const;
-    vector2		operator+(float const&num) const;
-    vector2		operator-(float const&num) const;
-    vector2		operator*(float const&num) const;
-    vector2		operator/(float const&num) const;
-    vector2&	operator+=(float const&num);
-    vector2&	operator-=(float const&num);
-    vector2&	operator*=(float const&num);
-    vector2&	operator/=(float const&num);
+    vector2		operator+(double const&num) const;
+    vector2		operator-(double const&num) const;
+    vector2		operator*(double const&num) const;
+    vector2		operator/(double const&num) const;
+    vector2&	operator+=(double const&num);
+    vector2&	operator-=(double const&num);
+    vector2&	operator*=(double const&num);
+    vector2&	operator/=(double const&num);
     //Boolean Equals Operators
     bool		operator==(const vector2& vector) const;
     bool		operator!=(const vector2& vector) const;
@@ -61,7 +61,7 @@ public:
 
 //Constructors
 inline vector2::vector2() {}
-inline vector2::vector2(float const&x, float const&y): X( x ), Y( y ) {}
+inline vector2::vector2(double const&x, double const&y): X( x ), Y( y ) {}
 
 // Math
 inline vector2 vector2::operator+(const vector2& vector) const
@@ -112,44 +112,44 @@ inline vector2 vector2::operator-() const
 {
     return vector2(-X,-Y);
 }
-inline vector2 vector2::operator-(float const&num) const
+inline vector2 vector2::operator-(double const&num) const
 {
     return vector2(X - num, Y - num);
 }
-inline vector2 vector2::operator+(float const&num) const
+inline vector2 vector2::operator+(double const&num) const
 {
     return vector2(X + num, Y + num);
 }
-inline vector2 vector2::operator*(float const&num) const
+inline vector2 vector2::operator*(double const&num) const
 {
     return vector2(X * num, Y * num);
 }
 
-inline vector2 vector2::operator/(float const&num) const
+inline vector2 vector2::operator/(double const&num) const
 {
     return vector2(X / num, Y / num);
 }
-inline vector2& vector2::operator+=(const float& num)
+inline vector2& vector2::operator+=(const double& num)
 {
     X += num;
     Y += num;
     return *this;
 }
 
-inline vector2& vector2::operator-=(const float& num)
+inline vector2& vector2::operator-=(const double& num)
 {
     X -= num;
     Y -= num;
     return *this;
 }
-inline vector2& vector2::operator*=(const float& num)
+inline vector2& vector2::operator*=(const double& num)
 {
     X *= num;
     Y *= num;
     return *this;
 }
 
-inline vector2& vector2::operator/=(const float& num)
+inline vector2& vector2::operator/=(const double& num)
 {
     X /= num;
     Y /= num;
@@ -180,11 +180,11 @@ inline const vector2 operator+(vector2 const&lhs,vector2 const&rhs){
 	return vector2(lhs.X+rhs.X,lhs.Y+rhs.Y);
 }
 //divides the two vector2 objects
-inline const vector2 operator/(vector2 const&lhs,float const&rhs){
+inline const vector2 operator/(vector2 const&lhs,double const&rhs){
 	return vector2(lhs.X/rhs,lhs.Y/rhs);
 }
 //Multiplies the two vector2 objects
-inline const vector2 operator*(float lhs,vector2 const &rhs){
+inline const vector2 operator*(double lhs,vector2 const &rhs){
 	vector2 result;
 	result.X=rhs.X * lhs;
 	result.Y=rhs.Y * lhs;
@@ -214,8 +214,8 @@ inline const vector2& operator*=(vector2 &lhs,const vector2 &rhs){
 	lhs.Y*=rhs.Y;
 	return  lhs;
 }
-//Multiplies the vector2 object by a float
-inline const vector2& operator*=(vector2 &lhs,const float &rhs){
+//Multiplies the vector2 object by a double
+inline const vector2& operator*=(vector2 &lhs,const double &rhs){
 	lhs.X*=rhs;
 	lhs.Y*=rhs;
 	return  lhs;
@@ -226,7 +226,7 @@ inline const bool operator!=(vector2 const&lhs,vector2 const&rhs){
  }
 //Compares the two vector2 objects and returns (true) if they are equal
 inline const bool operator==(vector2 const&lhs,vector2 const&rhs){
-  return ((lhs.X * rhs.X<(float)0.000001) && (lhs.Y * rhs.Y<(float)0.000001) );
+  return ((lhs.X * rhs.X<(double)0.000001) && (lhs.Y * rhs.Y<(double)0.000001) );
 }
 */
 
@@ -239,20 +239,20 @@ inline void zero(vector2 &lhs)
 //Returns if the vector2 is zero
 inline const bool isZero(vector2 const&lhs)
 {
-    return (lhs.X*lhs.X+lhs.Y*lhs.Y)<(float)0.000001;//EPSILON
+    return (lhs.X*lhs.X+lhs.Y*lhs.Y)<(double)0.000001;//EPSILON
 }
 //Returns dot product
-inline const float dot(vector2 const&lhs,vector2 const&rhs)
+inline const double dot(vector2 const&lhs,vector2 const&rhs)
 {
     return lhs.X*rhs.X+lhs.Y*rhs.Y;
 }
 //Returns length squared
-inline const float lengthSquared(vector2 const&rhs)
+inline const double lengthSquared(vector2 const&rhs)
 {
     return dot(rhs,rhs);
 }
 //Returns magnitude (length)
-inline const float magnitude(vector2 const &rhs)
+inline const double magnitude(vector2 const &rhs)
 {
     //return sqrtf(dot(rhs, rhs));
     return sqrt(dot(rhs, rhs));
@@ -268,7 +268,7 @@ inline void toNormalized(vector2 &vector)
     vector = vector*(1.f /(magnitude(vector)));
 }
 //Returns cross product for vector2
-inline float cross(vector2 const &lhs, vector2 const &rhs)
+inline double cross(vector2 const &lhs, vector2 const &rhs)
 {
     return (lhs.X * rhs.Y - lhs.Y * rhs.X);
 }
@@ -297,7 +297,7 @@ inline const vector2 perpendicular(vector2 const &rhs)
     return vector2(-rhs.Y, rhs.X);
 }
 //Clamps vector2 values to max
-inline void truncate(vector2 &rhs,float const& max)
+inline void truncate(vector2 &rhs,double const& max)
 {
     if (magnitude(rhs) > max)
     {
@@ -331,7 +331,7 @@ inline double distanceSquared(vector2 const&lhs,vector2 const&rhs)
 inline vector2 reflect(vector2 const&lhs,vector2 const&rhs)
 {
     vector2 out;
-    const float dotProductTimesTwo = dot(rhs,lhs) * 2.0f;
+    const double dotProductTimesTwo = dot(rhs,lhs) * 2.0f;
     out.X=rhs.X -(dotProductTimesTwo * lhs.X);
     out.Y=rhs.Y - (dotProductTimesTwo * lhs.Y);
     return out;

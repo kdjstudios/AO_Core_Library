@@ -4,8 +4,8 @@
 
 
 using namespace std;
-using namespace ao;
-using namespace ao::core;
+using namespace ::ao;
+using namespace ::ao::core;
 //Testing Case Data
 #define TEST_INSERT1_SIZE 17
 string test_insert1[]=
@@ -335,6 +335,7 @@ RetStat matrix3x3TEST()
 }
 RetStat matrix4x4TEST()
 {
+	cout << "Starting Test";
     float theta=30.0f;
     matrix4x4 start;
     matrix4x4 rot = rotateYXZ(40.0f,20.0f,10.0f);
@@ -483,7 +484,7 @@ int main()
 
 
     DoublyLinkedList::exercise();
-    SinglyLinkedList::exercise();
+    //SinglyLinkedList::exercise();
 
     cout << "Press any key to quit. ";
     char blah = ' ';

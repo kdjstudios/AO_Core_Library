@@ -46,7 +46,7 @@ public:
         m_iID(id)
     {
         //calculate center of Rect
-        m_vCenter = vector2( (left+right)*0.5, (top+bottom)*0.5 );
+        m_vCenter = vector2( (left+right)*0.5f, (top+bottom)*0.5f );
 
         m_dWidth  = fabs(right-left);
         m_dHeight = fabs(bottom-top);
