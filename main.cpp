@@ -64,9 +64,11 @@ void print(RetStat test)
     {
         cout << "Test was a Fail!" << endl;
     }
-    cout << "Press any key to quit. ";
+    /*
+	cout << "Press any key to quit. ";
     char blah = ' ';
     cin.get(blah);
+	*/
 }
 //
 RetStat quaternionTEST()
@@ -359,11 +361,10 @@ RetStat matrix4x4TEST()
     cout << "start*temp: " << temp*start<<endl;
     return SUCCESS;
 }
-/*/
+//
 RetStat SortsTEST(){
     return SUCCESS;
 }
-}}}
 //
 RetStat ClockTEST(){
     return SUCCESS;
@@ -469,6 +470,68 @@ RetStat aoBSTTEST(){
 	return overallTest;
 }
 //*/
+RetStat SingleLinkListTEST()
+    {
+        cout << endl << "SinglyLinkedList::exercise ()" << endl;
+
+        cout << endl << "instantiate a SinglyLinkedNode object" << endl;
+        SinglyLinkedNode * dln= new SinglyLinkedNode( "some stuff" );
+        delete dln;
+
+        cout << endl << "instantiate a SinglyLinkedList object" << endl;
+        SinglyLinkedList * dll= new SinglyLinkedList( );
+        string result;
+        dll -> getElement(1, result);
+        dll -> setElement(1, "Stuff");
+        dll -> pushFront("Stuff2");
+        dll -> popBack(result);
+        dll -> getBack(result);
+        dll -> clear();
+        dll -> isEmpty();
+        dll -> dump();
+        delete dll;
+
+        cout << endl << "instantiate a SinglyLinkedList object " << endl
+             << "that polymorphically behaves as a List object" << endl;
+        List * pl = new SinglyLinkedList();
+        pl -> getElement(1, result);
+        pl -> setElement(1, "Stuff");
+        delete pl;
+		return SUCCESS;
+    }
+RetStat DoubleLinkListTEST()
+    {
+        cout << endl << "DoublyLinkedList::exercise ()" << endl;
+
+        cout << endl << "instantiate a DoublyLinkedNode object" << endl;
+        DoublyLinkedNode * dln= new DoublyLinkedNode( "some stuff" );
+        delete dln;
+
+        cout << endl << "instantiate a DoublyLinkedList object" << endl;
+        DoublyLinkedList * dll= new DoublyLinkedList( );
+        string result;
+        dll -> getElement(1, result);
+        dll -> setElement(1, "Stuff");
+        dll -> pushBack("Stuff1");
+        dll -> pushFront("Stuff2");
+        dll -> popBack(result);
+        dll -> popFront(result);
+        dll -> getFront(result);
+        dll -> getBack(result);
+        dll -> clear( );
+        dll -> isEmpty( );
+        dll -> dump( );
+        delete dll;
+
+        cout << endl << "instantiate a DoublyLinkedList object " << endl
+             << "that polymorphically behaves as a List object" << endl;
+        List * pl = new DoublyLinkedList();
+        pl -> getElement(1, result);
+        pl -> setElement(1, "Stuff");
+        //pl -> getSize();
+        delete pl;
+		return SUCCESS;
+    }
 
 int main()
 {
@@ -481,10 +544,18 @@ int main()
     print(matrix3x3TEST());
     print(matrix4x4TEST());
     print(FSMTEST());
+	print(VectorTEST());
+	print(MeshTEST());
+	print(StackTEST());
+	print(LineTEST());
+	print(ShapeTEST());
+	print(SortsTEST());
+	print(ClockTEST());
+	print(ListsTEST());
+	print(StrTEST());
 
-
-    DoublyLinkedList::exercise();
-    //SinglyLinkedList::exercise();
+    print(DoubleLinkListTEST());
+    print(SingleLinkListTEST());
 
     cout << "Press any key to quit. ";
     char blah = ' ';

@@ -299,11 +299,13 @@ public:
     }
     bool isEmpty()
     {
-        cout << "isEmpty()\n";
+        cout << "isEmpty()";
         if (front == NULL)
         {
+			cout << "-True\n";
             return true;
         }
+		cout << "-False\n";
         return false;
     }
     void dump()
@@ -337,38 +339,7 @@ public:
         }
         cout << "BACK->"<<back<<"\n";
     }
-    static void exercise()
-    {
-        cout << endl << "DoublyLinkedList::exercise ()" << endl;
 
-        cout << endl << "instantiate a DoublyLinkedNode object" << endl;
-        DoublyLinkedNode * dln= new DoublyLinkedNode( "some stuff" );
-        delete dln;
-
-        cout << endl << "instantiate a DoublyLinkedList object" << endl;
-        DoublyLinkedList * dll= new DoublyLinkedList( );
-        string result;
-        dll -> getElement(1, result);
-        dll -> setElement(1, "Stuff");
-        dll -> pushBack("Stuff1");
-        dll -> pushFront("Stuff2");
-        dll -> popBack(result);
-        dll -> popFront(result);
-        dll -> getFront(result);
-        dll -> getBack(result);
-        dll -> clear( );
-        dll -> isEmpty( );
-        dll -> dump( );
-        delete dll;
-
-        cout << endl << "instantiate a DoublyLinkedList object " << endl
-             << "that polymorphically behaves as a List object" << endl;
-        List * pl = new DoublyLinkedList();
-        pl -> getElement(1, result);
-        pl -> setElement(1, "Stuff");
-        //pl -> getSize();
-        delete pl;
-    }
 };
 
 // SinglyLinkedNode
@@ -508,24 +479,30 @@ public:
     RetStat popBack(string& key)
     {
         cout << "popBack()\n";
-        if(isEmpty())
-        {
-            return FAIL;
-        }
-        else
-        {
-            SinglyLinkedNode *oldNode=back;
-            //loop to find
+		//TEMP fix?!?!? Neeed HELPPPPPPPP!!!!!!!!!!!!!----------------------------------------------------
+		if(back!=NULL){
+			front=NULL;
+		}
+		//------------------------------------------------------------------------------------------------
+			if(isEmpty())
+			{
+				return FAIL;
+			}
+			else
+			{
+				SinglyLinkedNode *oldNode=back;
+				//loop to find
 
-            size--;
-            if(size==0)
-            {
-                front=back=NULL;
-            }
-            key=oldNode->key;
-            delete oldNode;
-            return SUCCESS;
-        }
+				size--;
+				if(size==0)
+				{
+					front=back=NULL;
+				}
+				key=oldNode->key;
+				delete oldNode;
+				return SUCCESS;
+			}
+		
     }
     RetStat popFront(string& key)
     {
@@ -599,11 +576,13 @@ public:
     }
     bool isEmpty()
     {
-        cout << "isEmpty()\n";
+        cout << "isEmpty()";
         if (front == NULL)
         {
+			cout << "-True\n";
             return true;
         }
+		cout << "-False\n";
         return false;
     }
     void dump()
@@ -629,34 +608,7 @@ public:
         }
         cout << "BACK->"<<back<<"\n";
     }
-    static void exercise()
-    {
-        cout << endl << "SinglyLinkedList::exercise ()" << endl;
-
-        cout << endl << "instantiate a SinglyLinkedNode object" << endl;
-        SinglyLinkedNode * dln= new SinglyLinkedNode( "some stuff" );
-        delete dln;
-
-        cout << endl << "instantiate a SinglyLinkedList object" << endl;
-        SinglyLinkedList * dll= new SinglyLinkedList( );
-        string result;
-        dll -> getElement(1, result);
-        dll -> setElement(1, "Stuff");
-        dll -> pushFront("Stuff2");
-        //dll -> popBack(result);
-        //dll -> getBack(result);
-        //dll -> clear( );
-        dll -> isEmpty( );
-        dll -> dump( );
-        delete dll;
-
-        cout << endl << "instantiate a SinglyLinkedList object " << endl
-             << "that polymorphically behaves as a List object" << endl;
-        List * pl = new SinglyLinkedList();
-        pl -> getElement(1, result);
-        pl -> setElement(1, "Stuff");
-        delete pl;
-    }
+    
 };
 
 }
