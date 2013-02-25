@@ -67,6 +67,7 @@
     <ClInclude Include="aoConstant.h" />
     <ClInclude Include="aoEntity.h" />
     <ClInclude Include="aoEntityManager.h" />
+    <ClInclude Include="aoEntityProperties.h" />
     <ClInclude Include="aoFSM.h" />
     <ClInclude Include="aoIAABox.h" />
     <ClInclude Include="aoLine.h" />

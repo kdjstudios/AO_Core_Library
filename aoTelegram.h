@@ -7,28 +7,28 @@ ONLY FILE NEEDED TO INCLUDE
 
 namespace ao
 {
-namespace core
-{
-//
-// Telegram
-// (struct template)
-// ----------
-// + sender : int
-// + reciever : int
-// + msg : int
-// + dispatchTime : double
-// + extraInfo : void*
-// ----------
-//
-struct Telegram
-{
-    int sender;
-    int reciever;
-    int msg;
-    double dispatchTime;
-    void* extraInfo;
-};
+	namespace core
+	{
+		//
+		// Telegram
+		// (struct template)
+		// ----------
+		// + sender : int
+		// + reciever : int
+		// + msg : int
+		// + dispatchTime : double
+		// + extraInfo : void*
+		// ----------
+		//
+		struct Telegram
+		{
+			int sender;
+			int reciever;
+			int msg;
+			double dispatchTime;
+			void* extraInfo;
+		};
 
-}
+	}
 }
 #endif

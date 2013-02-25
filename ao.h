@@ -53,14 +53,14 @@ ONLY FILE NEEDED TO INCLUDE
 //The complete api for Adrenaline Obsession
 namespace ao
 {
-// THE FOLLOWING IS AN EMPTY LIST OF ALL SUB NAMESPACES
+	// THE FOLLOWING IS AN EMPTY LIST OF ALL SUB NAMESPACES
 
-//Basic classes such as vectors, planes, arrays, lists, and so on can be found in this namespace.
-namespace  	core {};
-//Basic classes for opening files such as txt, xml and mpo/jpg can be found in this namespace.
-namespace  	io {};
-//Basic classes such as Vertex, Entity, Rigidbodys, Entity Manager, Meshs, and so on can be found in this namespace.
-namespace  	graphics {};
+	//Basic classes such as vectors, planes, arrays, lists, and so on can be found in this namespace.
+	namespace  	core {};
+	//Basic classes for opening files such as txt, xml and mpo/jpg can be found in this namespace.
+	namespace  	io {};
+	//Basic classes such as Vertex, Entity, Rigidbodys, Entity Manager, Meshs, and so on can be found in this namespace.
+	namespace  	graphics {};
 };
 
 #endif
