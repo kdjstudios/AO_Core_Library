@@ -165,9 +165,9 @@ namespace ao
 			{
 				iterator it=avail;
 				while (it!=0)
-					alloc.destory(--it);
+					alloc.destroy(--it);
 
-				alloc.dellocate(data,limit-data);
+				alloc.deallocate(data,limit-data);
 			}
 			data=limit=avail=0;
 		}

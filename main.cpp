@@ -397,7 +397,8 @@ RetStat StackTEST(){
 RetStat VectorTEST(){
 	return SUCCESS;
 }
-//
+// 
+
 RetStat aoBSTTEST(){
 	string searchKey;
 	RetStat overallTest=SUCCESS,test=SUCCESS;
@@ -470,6 +471,7 @@ RetStat aoBSTTEST(){
 	return overallTest;
 }
 //*/
+/*
 RetStat SingleLinkListTEST()
 {
 	cout << endl << "SinglyLinkedList::exercise ()" << endl;
@@ -499,6 +501,8 @@ RetStat SingleLinkListTEST()
 	delete pl;
 	return SUCCESS;
 }
+*/
+/*
 RetStat DoubleLinkListTEST()
 {
 	cout << endl << "DoublyLinkedList::exercise ()" << endl;
@@ -532,6 +536,7 @@ RetStat DoubleLinkListTEST()
 	delete pl;
 	return SUCCESS;
 }
+*/
 
 int main()
 {
@@ -539,23 +544,23 @@ int main()
 	print(vector3TEST());
 	print(vector4TEST());
 	print(quaternionTEST());
-	//print(aoBSTTEST());
+	print(aoBSTTEST());
 	print(matrix2x2TEST());
 	print(matrix3x3TEST());
 	print(matrix4x4TEST());
 	print(FSMTEST());
 	print(VectorTEST());
-	print(MeshTEST());
-	print(StackTEST());
-	print(LineTEST());
-	print(ShapeTEST());
-	print(SortsTEST());
-	print(ClockTEST());
-	print(ListsTEST());
-	print(StrTEST());
+	//print(MeshTEST());
+	//print(StackTEST());
+	//print(LineTEST());
+	//print(ShapeTEST());
+	//print(SortsTEST());
+	//print(ClockTEST());
+	//print(ListsTEST());
+	//print(StrTEST());
 
-	print(DoubleLinkListTEST());
-	print(SingleLinkListTEST());
+	//print(DoubleLinkListTEST());
+	//print(SingleLinkListTEST());
 	//uncomment the next three lines to allow user input
 	//cout << "Press any key to quit. ";
 	//char blah = ' ';

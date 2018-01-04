@@ -18,7 +18,7 @@ namespace ao
 		{
 			virtual void Update(double time_elapsed) {};
 			virtual void Render();
-		}
+		};
 
 	}
 }

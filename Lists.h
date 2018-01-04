@@ -241,6 +241,7 @@ namespace ao
 				size++;
 				return SUCCESS;
 			}
+			/*
 			RetStat pushBack(TYPE const &result)
 			{
 				//if((index<0)||(index>=size)) {
@@ -249,6 +250,7 @@ namespace ao
 				array[index]=result;
 				return SUCCESS;
 			}
+			*/
 		};
 
 	}
