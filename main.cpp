@@ -556,9 +556,9 @@ int main()
 
 	print(DoubleLinkListTEST());
 	print(SingleLinkListTEST());
-
-	cout << "Press any key to quit. ";
-	char blah = ' ';
-	cin.get(blah);
+	//uncomment the next three lines to allow user input
+	//cout << "Press any key to quit. ";
+	//char blah = ' ';
+	//cin.get(blah);
 	return 0;
 }
