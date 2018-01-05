@@ -8,7 +8,7 @@ ONLY FILE NEEDED TO INCLUDE
 //#include "position2d.h"
 //#include "aoRect.h"
 //#include "aabbox3d.h"
-//#include "aoIAABox.h"
+#include "aoIAABox.h"
 //#include "line2d.h"
 //#include "line3d.h"
 //#include "plane3d.h"

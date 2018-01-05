@@ -285,7 +285,7 @@ RetStat FSMTEST()
 
 
 	//create a miner
-	//Miner Bob(ent_Miner_Bob);
+	//FSM Bob(ent_Miner_Bob);
 
 	//create his wife
 	//MinersWife Elsa(ent_Elsa);
@@ -442,7 +442,7 @@ RetStat aoBSTTEST(){
 	cout << endl;
 	for(int ii=0;ii<TEST_INSERT4_SIZE;ii++) {
 		searchKey=test_insert4[ii];
-		if(bt->insert(searchKey)==NULL){
+		if(bt->insert(searchKey)==0){
 			test=FAIL;
 			overallTest=FAIL;
 		}
@@ -471,38 +471,39 @@ RetStat aoBSTTEST(){
 	return overallTest;
 }
 //*/
-/*
+
 RetStat SingleLinkListTEST()
 {
 	cout << endl << "SinglyLinkedList::exercise ()" << endl;
 
 	cout << endl << "instantiate a SinglyLinkedNode object" << endl;
-	SinglyLinkedNode * dln= new SinglyLinkedNode( "some stuff" );
-	delete dln;
+	SinglyLinkedNode * sln= new SinglyLinkedNode( "some stuff" );
+	delete sln;
 
 	cout << endl << "instantiate a SinglyLinkedList object" << endl;
-	SinglyLinkedList * dll= new SinglyLinkedList( );
+	/*
+	SinglyLinkedList * sll= new SinglyLinkedList( );
 	string result;
-	dll -> getElement(1, result);
-	dll -> setElement(1, "Stuff");
-	dll -> pushFront("Stuff2");
-	dll -> popBack(result);
-	dll -> getBack(result);
-	dll -> clear();
-	dll -> isEmpty();
-	dll -> dump();
-	delete dll;
-
+	sll -> getElement(1, result);
+	sll -> setElement(1, "Stuff");
+	sll -> pushFront("Stuff2");
+	sll -> popBack(result);
+	sll -> getBack(result);
+	sll -> clear();
+	sll -> isEmpty();
+	sll -> dump();
+	delete sll;
+	*/
 	cout << endl << "instantiate a SinglyLinkedList object " << endl
 		<< "that polymorphically behaves as a List object" << endl;
-	List * pl = new SinglyLinkedList();
-	pl -> getElement(1, result);
-	pl -> setElement(1, "Stuff");
-	delete pl;
+	//List * pl = new SinglyLinkedList();
+	//pl -> getElement(1, result);
+	//pl -> setElement(1, "Stuff");
+	//delete pl;
 	return SUCCESS;
 }
-*/
-/*
+//*/
+
 RetStat DoubleLinkListTEST()
 {
 	cout << endl << "DoublyLinkedList::exercise ()" << endl;
@@ -532,11 +533,11 @@ RetStat DoubleLinkListTEST()
 	List * pl = new DoublyLinkedList();
 	pl -> getElement(1, result);
 	pl -> setElement(1, "Stuff");
-	//pl -> getSize();
+	pl -> getSize();
 	delete pl;
 	return SUCCESS;
 }
-*/
+//*/
 
 int main()
 {
@@ -550,17 +551,18 @@ int main()
 	print(matrix4x4TEST());
 	print(FSMTEST());
 	print(VectorTEST());
-	//print(MeshTEST());
-	//print(StackTEST());
-	//print(LineTEST());
-	//print(ShapeTEST());
-	//print(SortsTEST());
-	//print(ClockTEST());
-	//print(ListsTEST());
-	//print(StrTEST());
+	print(MeshTEST());
+	print(StackTEST());
+	print(LineTEST());
+	print(ShapeTEST());
+	print(SortsTEST());
+	print(ClockTEST());
+	print(ListsTEST());
+	print(StrTEST());
 
-	//print(DoubleLinkListTEST());
-	//print(SingleLinkListTEST());
+	print(DoubleLinkListTEST());
+	print(SingleLinkListTEST());
+	
 	//uncomment the next three lines to allow user input
 	//cout << "Press any key to quit. ";
 	//char blah = ' ';
