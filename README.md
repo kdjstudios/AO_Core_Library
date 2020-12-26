@@ -3,8 +3,8 @@
 <p align="center">This is a simple compilation of various objects and entities in C++. Features are listed below</p>
 
 <p align="center">
-    <a href="https://travis-ci.org/TheKyleJohnson90/AO_Core_Library">
-        <img src="https://travis-ci.org/TheKyleJohnson90/AO_Core_Library.svg?branch=master" alt="build status">
+    <a href="https://travis-ci.org/kdjstudios/AO_Core_Library">
+        <img src="https://travis-ci.org/kdjstudios/AO_Core_Library.svg?branch=master" alt="build status">
     </a>
 </p>
 
